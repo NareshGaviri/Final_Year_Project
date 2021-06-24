@@ -22,7 +22,7 @@ import { useStyles } from "../styles/styles";
 import PropTypes from "prop-types";
 import { Button, useTheme } from "@material-ui/core";
 import { Redirect } from "react-router";
-
+import { Link } from "react-router-dom";
 function Presentation(props) {
   const { handleDrawerClose, handleDrawerOpen, open, _signOut, auth } = props;
 
@@ -87,12 +87,14 @@ function Presentation(props) {
         {modules.map((icon) => {
           return (
             <List>
+              <Link to={icon.link}>
               <ListItem>
                 <Tooltip title={icon.text}>
                   <ListItemIcon>{icon.icon}</ListItemIcon>
                 </Tooltip>
                 <ListItemText primary={icon.text} />
               </ListItem>
+              </Link>
             </List>
           );
         })}

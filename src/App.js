@@ -6,7 +6,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ForgotPassword from "./Services/Authentication/components/Authentication/ForgotPassword";
 import NavBar from "./Services/Dashboard/NavBar";
 import { store } from "./store/store/store";
-import Register from "./Services/Register/components/Register"
+import Register from "./Services/Register/components/Register";
 function App() {
   return (
     <div className="App">
@@ -14,7 +14,7 @@ function App() {
         <Provider store={store}>
           <Switch>
             <Route exact path="/" component={NavBar} />
-         <Route path="/data" component={Register} />
+            <Route path="/data" component={Register} />
             {/* <Route  path="/SignUp" component={SignUp} /> */}
             <Route path="/changePassword" component={ForgotPassword} />
           </Switch>
@@ -23,6 +23,5 @@ function App() {
     </div>
   );
 }
-
 
 export default App;

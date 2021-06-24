@@ -4,11 +4,11 @@ import PeopleIcon from "@material-ui/icons/People"
 import SettingsApplicationsSharpIcon from "@material-ui/icons/SettingsApplicationsSharp"
 import { IoIosPeople } from "react-icons/io";
 const modules =[
-  {
-    text :"Students",
-    icon :<PeopleIcon/>,
-    moduleName:"students"
-  },
+  // {
+  //   text :"Students",
+  //   icon :<PeopleIcon/>,
+  //   moduleName:"students"
+  // },
   {
     text:"Employees",
     icon :<IoIosPeople size="28px"/>,
@@ -17,17 +17,18 @@ const modules =[
   {
     text :"Settings",
     icon :<SettingsApplicationsSharpIcon/>,
-    moduleName:"settings"
+    moduleName:"settings",
+    link:"/data"
   },
   {
     text : "Reports",
     icon:<ReportIcon/>,
     moduleName:"reports"
   },
-  {
-    text:"History",
-    icon:<HistoryIcon/>,
-    moduleName:"history"
-  }
+  // {
+  //   text:"History",
+  //   icon:<HistoryIcon/>,
+  //   moduleName:"history"
+  // }
 ]
 export default modules
