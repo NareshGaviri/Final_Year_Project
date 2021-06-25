@@ -21,6 +21,7 @@ function Container(props) {
     );
 }
 const mapStateToProps = (state) => {
+  console.log("state😀",state)
   const { auth } = state.firebase;
   console.log(state.firestore.data.STUDENTS);
   console.log(state.authenticate.auth.collectionData);

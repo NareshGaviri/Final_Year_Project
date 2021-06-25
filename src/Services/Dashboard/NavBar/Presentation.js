@@ -23,6 +23,8 @@ import PropTypes from "prop-types";
 import { Button, Menu, MenuItem, useTheme } from "@material-ui/core";
 import { Redirect } from "react-router";
 import { Link, useLocation } from "react-router-dom";
+
+import Student from "../../Register/components/Student"
 function Presentation(props) {
   const { _signOut, auth, usersData, people, collectionData } = props;
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -146,17 +148,7 @@ function Presentation(props) {
                   })}
                 >
                   <Toolbar>
-                    <IconButton
-                      color="inherit"
-                      aria-label="open drawer"
-                      onClick={handleDrawerOpen}
-                      edge="start"
-                      className={clsx(classes.menuButton, {
-                        [classes.hide]: open,
-                      })}
-                    >
-                      <MenuIcon />
-                    </IconButton>
+                   
                     <IconButton
                       aria-label="account of current user"
                       aria-controls="menu-appbar"
