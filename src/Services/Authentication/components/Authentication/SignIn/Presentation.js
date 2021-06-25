@@ -75,14 +75,26 @@ function Presentation(props) {
                   )}
 
                   <Grid item xs>
-                    <Link to="/changePassword" variant="body2">
+                    <Link to="/changePassword" variant="body">
                       <Button
                         style={{ textDecoration: "none" }}
                         variant="contained"
                         type="button"
                         color="primary"
                       >
-                        Forgot password?
+                        ForgotPassword?
+                      </Button>
+                    </Link>
+                  </Grid>
+                  <Grid item xs>
+                    <Link to="/signup" variant="body">
+                      <Button
+                        style={{ textDecoration: "none" }}
+                        variant="contained"
+                        type="button"
+                        color="primary"
+                      >
+                        SignUp
                       </Button>
                     </Link>
                   </Grid>

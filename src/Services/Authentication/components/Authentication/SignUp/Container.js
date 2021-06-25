@@ -13,6 +13,7 @@ export class Container extends Component {
       password: "",
       fName: "",
       lName: "",
+      role:""
     };
   }
   handleChange = (e) => {

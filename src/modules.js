@@ -23,7 +23,8 @@ const modules =[
   {
     text : "Reports",
     icon:<ReportIcon/>,
-    moduleName:"reports"
+    moduleName:"reports",
+    link :"/Table"
   },
   // {
   //   text:"History",

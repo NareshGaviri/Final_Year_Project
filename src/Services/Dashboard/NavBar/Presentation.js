@@ -8,7 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
-
+import SignIn from "../../Authentication/components/Authentication/SignIn"
 import modules from "../../../modules";
 
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
@@ -20,91 +20,166 @@ import clsx from "clsx";
 import Tooltip from "@material-ui/core/Tooltip";
 import { useStyles } from "../styles/styles";
 import PropTypes from "prop-types";
-import { Button, useTheme } from "@material-ui/core";
+import { Button, Menu, MenuItem, useTheme } from "@material-ui/core";
 import { Redirect } from "react-router";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 function Presentation(props) {
-  const { handleDrawerClose, handleDrawerOpen, open, _signOut, auth } = props;
+  const { _signOut, auth, usersData, people, collectionData } = props;
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const openIcon = Boolean(anchorEl);
+
+  const handleMenu = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const [open, setOpen] = React.useState(false);
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
+
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
 
   const classes = useStyles();
   const theme = useTheme();
-  return (
-    <div className={classes.root}>
-      {/* {!auth.uid ? <Redirect to="/signin" /> : null} */}
 
-      <CssBaseline />
-      <AppBar
-        position="fixed"
-        className={clsx(classes.appBar, {
-          [classes.appBarShift]: open,
-        })}
-      >
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            className={clsx(classes.menuButton, {
-              [classes.hide]: open,
-            })}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap>
-            KUMUDA
-          </Typography>
-          <div className={classes.navButton}>
-            <Button onClick={_signOut} color="inherit">
-              LogOut
-            </Button>
-          </div>
-        </Toolbar>
-      </AppBar>
-      <Drawer
-        variant="permanent"
-        className={clsx(classes.drawer, {
-          [classes.drawerOpen]: open,
-          [classes.drawerClose]: !open,
-        })}
-        classes={{
-          paper: clsx({
-            [classes.drawerOpen]: open,
-            [classes.drawerClose]: !open,
-          }),
-        }}
-      >
-        <div className={classes.toolbar}>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === "rtl" ? (
-              <ChevronRightIcon />
-            ) : (
-              <ChevronLeftIcon />
-            )}
-          </IconButton>
+  return (
+    <div>
+      {collectionData ? (
+        <div>
+          {collectionData.role === "admin" ? (
+            <div className={classes.root}>
+              {!auth.uid ? <Redirect to="/signin" /> : null}
+
+              <div>
+                <CssBaseline />
+                <AppBar
+                  position="fixed"
+                  className={clsx(classes.appBar, {
+                    [classes.appBarShift]: open,
+                  })}
+                >
+                  <Toolbar>
+                    <IconButton
+                      color="inherit"
+                      aria-label="open drawer"
+                      onClick={handleDrawerOpen}
+                      edge="start"
+                      className={clsx(classes.menuButton, {
+                        [classes.hide]: open,
+                      })}
+                    >
+                      <MenuIcon />
+                    </IconButton>
+                    <IconButton
+                      aria-label="account of current user"
+                      aria-controls="menu-appbar"
+                      aria-haspopup="true"
+                      onClick={handleMenu}
+                      color="inherit"
+                    ></IconButton>
+                    <Typography variant="h6" noWrap>
+                      ADMIN
+                    </Typography>
+
+                    <div className={classes.navButton}>
+                      <Button onClick={_signOut} color="inherit">
+                        LogOut
+                      </Button>
+                    </div>
+                  </Toolbar>
+                </AppBar>
+                <Drawer
+                  variant="permanent"
+                  className={clsx(classes.drawer, {
+                    [classes.drawerOpen]: open,
+                    [classes.drawerClose]: !open,
+                  })}
+                  classes={{
+                    paper: clsx({
+                      [classes.drawerOpen]: open,
+                      [classes.drawerClose]: !open,
+                    }),
+                  }}
+                >
+                  <div className={classes.toolbar}>
+                    <IconButton onClick={handleDrawerClose}>
+                      {theme.direction === "rtl" ? (
+                        <ChevronRightIcon />
+                      ) : (
+                        <ChevronLeftIcon />
+                      )}
+                    </IconButton>
+                  </div>
+                  <Divider />
+                  {modules.map((icon) => {
+                    return (
+                      <Link onClick={handleDrawerClose} to={icon.link}>
+                        <ListItem>
+                          <Tooltip title={icon.text}>
+                            <ListItemIcon>{icon.icon}</ListItemIcon>
+                          </Tooltip>
+                          <ListItemText primary={icon.text} />
+                        </ListItem>
+                      </Link>
+                    );
+                  })}
+                </Drawer>
+              </div>
+            </div>
+          ) : (
+            <div className={classes.root}>
+              {!auth.uid ? <Redirect to="/signin" /> : null}
+
+              <div>
+                <CssBaseline />
+                <AppBar
+                  position="fixed"
+                  className={clsx(classes.appBar, {
+                    [classes.appBarShift]: open,
+                  })}
+                >
+                  <Toolbar>
+                    <IconButton
+                      color="inherit"
+                      aria-label="open drawer"
+                      onClick={handleDrawerOpen}
+                      edge="start"
+                      className={clsx(classes.menuButton, {
+                        [classes.hide]: open,
+                      })}
+                    >
+                      <MenuIcon />
+                    </IconButton>
+                    <IconButton
+                      aria-label="account of current user"
+                      aria-controls="menu-appbar"
+                      aria-haspopup="true"
+                      onClick={handleMenu}
+                      color="inherit"
+                    ></IconButton>
+                    <Typography variant="h6" noWrap>
+                      STUDENT
+                    </Typography>
+
+                    <div className={classes.navButton}>
+                      <Button onClick={_signOut} color="inherit">
+                        LogOut
+                      </Button>
+                    </div>
+                  </Toolbar>
+                </AppBar>
+              </div>
+            </div>
+          )}
         </div>
-        <Divider />
-        {modules.map((icon) => {
-          return (
-            <List>
-              <Link to={icon.link}>
-              <ListItem>
-                <Tooltip title={icon.text}>
-                  <ListItemIcon>{icon.icon}</ListItemIcon>
-                </Tooltip>
-                <ListItemText primary={icon.text} />
-              </ListItem>
-              </Link>
-            </List>
-          );
-        })}
-      </Drawer>
+      ) : <SignIn/>}
     </div>
   );
 }
-
-Presentation.propTypes = {
-  open: PropTypes.bool,
-};
 
 export default Presentation;

@@ -19,7 +19,9 @@ export class Container extends Component {
   };
   handleSubmit = (e) => {
       e.preventDefault();
+     
       this.props.login(this.state);
+      
   }; 
   
   render() {
@@ -38,7 +40,7 @@ export class Container extends Component {
   }
 }
 const mapStateToProps = (state) => {
-  console.log("line-37-container", state.authenticate);
+  console.log("line-37-container", state.authenticate.auth.authStatus);
   const { auth } = state.firebase;
   return {
     authStatus: state.authenticate.auth.authStatus,

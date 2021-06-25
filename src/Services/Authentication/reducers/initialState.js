@@ -1,5 +1,6 @@
 const initialState={
   authStatus :null,
-  authError :false
+  authError :false,
+  collectionData :{}
 }
 export default initialState;

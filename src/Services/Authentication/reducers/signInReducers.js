@@ -9,8 +9,10 @@ export const reducers = (state = initialState, action) => {
       };
     case ACTIONS.AUTH_SUCCESS:
       console.log("login Success");
+      console.log(action.payload)
       return {
         ...state,
+        collectionData : action.payload
       };
       
     case ACTIONS.AUTH_FAILURE:

@@ -5,9 +5,10 @@ export const authRequest=()=>{
     type:ACTIONS.AUTH_REQUEST
   }
 }
-export const authSuccess=()=>{
+export const authSuccess=(payload)=>{
   return {
     type:ACTIONS.AUTH_SUCCESS,
+    payload
   }
 }
 export const authFailure=(payload)=>{

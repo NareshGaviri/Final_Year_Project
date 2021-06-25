@@ -9,16 +9,24 @@ import {
   signOutSuccess,
   signOutFaliure,
 } from "../actions/actionCreators";
-
+import firebase from "../../../config/fbConfig"
+import {db} from "../../../config/fbConfig"
 export const logIn = (credentials) => {
-  return (dispatch, getState, { getFirebase }) => {
-    const firebase = getFirebase();
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    // const firebase = getFirebase();
+    // const firestore = getFirestore();
     dispatch(authRequest());
     firebase
       .auth()
       .signInWithEmailAndPassword(credentials.email, credentials.password)
-      .then(() => {
-        dispatch(authSuccess());
+      .then(({user}) => {
+        db
+          .collection("USERS").doc(user.uid)
+          .get()
+          .then((doc) => {
+            console.log(doc.data())
+            dispatch(authSuccess(doc.data()))
+          });
       })
       .catch((error) => {
         console.log(error.message);
@@ -36,7 +44,8 @@ export const signUp = (newUser) => {
       fName: newUser.fName,
       lName: newUser.lName,
       createdAt: new Date(),
-      isAdmin : false
+      role: newUser.role,
+      email: newUser.email
     };
     dispatch(signUpRequest());
     firebase
@@ -63,7 +72,8 @@ export const _signOut = () => {
     firebase
       .auth()
       .signOut()
-      .then(() => {
+      .then((data) => {
+        console.log(data)
         dispatch(signOutSuccess());
       })
       .catch((error) => {

@@ -10,6 +10,13 @@ export const useStyles = makeStyles((theme) => ({
     position: "fixed",
     backgroundImage: "linear-gradient(50deg,#f0b1f1,#f0fff1)",
   },
+  backGroundSignUp: {
+    width: "100%",
+    height: "100%",
+    overflow: "hidden",
+    position: "fixed",
+    backgroundImage: "linear-gradient(50deg,#f0b1f1,#f0fff1)",
+  },
 signUp:{
   width: "100%",
   height: "100%",
@@ -36,7 +43,15 @@ signUp:{
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    height: '450px',  
+    height: '400px',  
+  },
+  paper1: {
+    marginTop: theme.spacing(9),
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+   
+    height: '500px',
   },
   avatar: {
     margin: theme.spacing(1),
