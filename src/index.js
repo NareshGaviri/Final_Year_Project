@@ -4,7 +4,7 @@ import "./index.css"
 import App from "./App"
 import { store } from "./store/store/store"
 
-store.firebaseAuthIsReady.then(() => {
+ store.firebaseAuthIsReady.then(() => {
   ReactDOM.render(
     <React.StrictMode>
       <App />

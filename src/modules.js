@@ -1,35 +1,36 @@
-import HistoryIcon from "@material-ui/icons/History"
-import ReportIcon from "@material-ui/icons/Report"
-import PeopleIcon from "@material-ui/icons/People"
-import SettingsApplicationsSharpIcon from "@material-ui/icons/SettingsApplicationsSharp"
+import HistoryIcon from "@material-ui/icons/History";
+import ReportIcon from "@material-ui/icons/Report";
+import ViewArrayTwoToneIcon from "@material-ui/icons/ViewArrayTwoTone";
+import PublishIcon from "@material-ui/icons/Publish";
 import { IoIosPeople } from "react-icons/io";
-const modules =[
+const modules = [
   // {
   //   text :"Students",
   //   icon :<PeopleIcon/>,
   //   moduleName:"students"
   // },
   {
-    text:"Employees",
-    icon :<IoIosPeople size="28px"/>,
-    moduleName:"employees"
+    text: "Students",
+    icon: <IoIosPeople size="28px" />,
+    moduleName: "students",
   },
   {
-    text :"Settings",
-    icon :<SettingsApplicationsSharpIcon/>,
-    moduleName:"settings",
-    link:"/data"
+    text: "View Data",
+    icon: <ViewArrayTwoToneIcon />,
+    moduleName: "viewdata",
+    link: "/data",
   },
   {
-    text : "Reports",
-    icon:<ReportIcon/>,
-    moduleName:"reports",
-    link :"/Table"
+    text: "Publish",
+    icon: <PublishIcon />,
+    moduleName: "publish",
+    link: "/Table",
   },
+
   // {
   //   text:"History",
   //   icon:<HistoryIcon/>,
   //   moduleName:"history"
   // }
-]
-export default modules
+];
+export default modules;
