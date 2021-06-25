@@ -1,7 +1,7 @@
 import HistoryIcon from "@material-ui/icons/History"
 import ReportIcon from "@material-ui/icons/Report"
-import PeopleIcon from "@material-ui/icons/People"
-import SettingsApplicationsSharpIcon from "@material-ui/icons/SettingsApplicationsSharp"
+import ViewArrayTwoToneIcon from '@material-ui/icons/ViewArrayTwoTone';
+import PublishIcon from '@material-ui/icons/Publish';
 import { IoIosPeople } from "react-icons/io";
 const modules =[
   // {
@@ -10,20 +10,20 @@ const modules =[
   //   moduleName:"students"
   // },
   {
-    text:"Employees",
+    text:"Students",
     icon :<IoIosPeople size="28px"/>,
-    moduleName:"employees"
+    moduleName:"students"
   },
   {
-    text :"Settings",
-    icon :<SettingsApplicationsSharpIcon/>,
-    moduleName:"settings",
+    text :"Publish",
+    icon :<PublishIcon/>,
+    moduleName:"publish",
     link:"/data"
   },
   {
-    text : "Reports",
-    icon:<ReportIcon/>,
-    moduleName:"reports",
+    text : "View Data",
+    icon:<ViewArrayTwoToneIcon/>,
+    moduleName:"viewdata",
     link :"/Table"
   },
   // {

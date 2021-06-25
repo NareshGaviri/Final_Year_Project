@@ -118,7 +118,8 @@ function Presentation(props) {
                   <Divider />
                   {modules.map((icon) => {
                     return (
-                      <Link onClick={handleDrawerClose} to={icon.link}>
+                      <List >
+                      <Link style={{textDecoration:"none",color:"black"}} onClick={handleDrawerClose} to={icon.link}>
                         <ListItem>
                           <Tooltip title={icon.text}>
                             <ListItemIcon>{icon.icon}</ListItemIcon>
@@ -126,6 +127,7 @@ function Presentation(props) {
                           <ListItemText primary={icon.text} />
                         </ListItem>
                       </Link>
+                      </List>
                     );
                   })}
                 </Drawer>
