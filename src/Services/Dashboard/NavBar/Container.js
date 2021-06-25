@@ -1,37 +1,33 @@
 import React from "react";
 import Presentation from "./Presentation";
 import { connect } from "react-redux";
+import { compose } from "redux";
+import { firestoreConnect } from "react-redux-firebase";
 import { _signOut } from "../../Authentication/middleware/index";
 function Container(props) {
-  const { _signOut, auth } = props;
-  const [open, setOpen] = React.useState(false);
-
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
-  return (
-    <div>
-      <Presentation
-        auth={auth}
-        _signOut={_signOut}
-        open={open}
-        handleDrawerClose={handleDrawerClose}
-        handleDrawerOpen={handleDrawerOpen}
-      />
-    </div>
-  );
+  const { _signOut, auth, usersData, people, collectionData } = props;
+  console.log("collectionData",collectionData);
+  
+    return (
+      <div>
+        <Presentation
+          auth={auth}
+          _signOut={_signOut}
+          people={people}
+          usersData={usersData}
+          collectionData={collectionData}
+        />
+      </div>
+    );
 }
 const mapStateToProps = (state) => {
-  console.log(state.firebase.auth.uid);
   const { auth } = state.firebase;
-  console.log(state)
+  console.log(state.firestore.data.STUDENTS);
+  console.log(state.authenticate.auth.collectionData);
   return {
     auth: auth,
-    people :state.firestore
+    people: state.firestore.data.STUDENTS,
+    collectionData: state.authenticate.auth.collectionData,
   };
 };
 const mapDispatchToProps = (dispatch) => {
@@ -39,4 +35,7 @@ const mapDispatchToProps = (dispatch) => {
     _signOut: () => dispatch(_signOut()),
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(Container);
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  firestoreConnect([{ collection: "STUDENTS" }])
+)(Container);

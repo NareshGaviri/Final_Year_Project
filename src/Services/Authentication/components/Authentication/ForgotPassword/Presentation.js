@@ -42,7 +42,7 @@ function Presentation(props) {
                 <br />
                 <CardActions>
                   {validations.checkEmail(email) ? (
-                    <Button variant="contained" type="submit" color="primary">
+                    <Button onClick={handleSubmit} variant="contained" type="submit" color="primary">
                       Send Email
                     </Button>
                   ) : (
@@ -51,6 +51,7 @@ function Presentation(props) {
                       disabled
                       type="submit"
                       color="primary"
+                      onClick={handleSubmit} 
                     >
                       Email
                     </Button>

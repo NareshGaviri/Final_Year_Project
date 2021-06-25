@@ -14,6 +14,7 @@ import {
   CssBaseline,
   Container,
 } from "@material-ui/core";
+import { Link } from "react-router-dom";
 import { Redirect } from "react-router";
 import MuiAlert from "@material-ui/lab/Alert";
 import { useStyles } from "../../../styles/styles";
@@ -48,17 +49,18 @@ function Presentations(props) {
     lName,
     authSignUp,
     signUp,
-    auth
+    role,
+    auth,
   } = props;
 
   return (
-    <div className={classes.backGroundSignIn}>
+    <div className={classes.backGroundSignUp}>
       {auth.uid ? <Redirect to="/" /> : null}
       <div className={classes.signUp}>
         <Paper elevation={24}>
-          <Container component="main" maxWidth="xs">
+          <Container component="main">
             <CssBaseline />
-            <div className={classes.paper}>
+            <div className={classes.paper1}>
               <img
                 src={SasiLogo}
                 className={classes.sasiLogo}
@@ -107,7 +109,18 @@ function Presentations(props) {
                   value={password}
                   handleChange={handleChange}
                 />
-
+                <br />
+                <br />
+                <CustomField
+                  id="role"
+                  required
+                  type="name"
+                  label="Role"
+                  value={role}
+                  handleChange={handleChange}
+                />
+                <br />
+                <br />
                 <CardActions>
                   <Button
                     variant="contained"
@@ -139,6 +152,11 @@ function Presentations(props) {
                       </Alert>
                     </Snackbar>
                   )}
+                  <Link to="/signin">
+                    <Button variant="contained" type="submit" color="primary">
+                      Cancel
+                    </Button>
+                  </Link>
                 </CardActions>
               </form>
             </div>
