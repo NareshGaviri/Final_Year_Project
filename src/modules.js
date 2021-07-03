@@ -13,6 +13,7 @@ const modules = [
     text: "Students",
     icon: <IoIosPeople size="28px" />,
     moduleName: "students",
+    link :"/StudentsData"
   },
   {
     text: "View Data",

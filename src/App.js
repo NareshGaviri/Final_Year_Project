@@ -8,10 +8,12 @@ import NavBar from "./Services/Dashboard/NavBar/components/NavBar";
 import { store } from "./store/store/store";
 import Student from "./Services/Register/components/Student";
 import Register from "./Services/Register/components/Register";
+import StudentsData from "./Services/Register/components/AdminViewStudent/StudentsData"
 function App() {
   return (
     <Provider store={store}>
       <div className="App">
+     
         <BrowserRouter>
           <NavBar />
           <Switch>
@@ -21,8 +23,7 @@ function App() {
             <Route path="/SignUp" component={SignUp} />
             <Route path="/Student/:RegNo" component={Student} />
             <Route path="/changePassword" component={ForgotPassword} />
-           
-            
+            <Route path="/StudentsData" component={StudentsData} />
           </Switch>
         </BrowserRouter>
       </div>

@@ -3,20 +3,24 @@ import MaterialTable from "material-table";
 import { Link } from "react-router-dom";
 function Presentation({ people }) {
   console.log(people);
-  
+
   const tableColumns = [
-    
     {
       field: "RegNo",
       title: "RegNo",
       datatYPE: "String",
       render: (rowData) => {
         return (
-          <Link style={{textDecoration: "none"}} to={"/Student/"+rowData.RegNo }>{rowData.RegNo}</Link>
-          );
-        },
+          <Link
+            style={{ textDecoration: "none" }}
+            to={"/Student/" + rowData.RegNo}
+          >
+            {rowData.RegNo}
+          </Link>
+        );
+      },
     },
-    
+
     { field: "FirstName", title: "FirstName" },
     { field: "LastName", title: "LastName" },
     { field: "Branch", title: "Branch" },
@@ -28,21 +32,21 @@ function Presentation({ people }) {
   let usersInfoData = [];
   if (people) {
     people.map((item) => {
-       
       usersInfoData.push({
         RegNo: item.RegNo,
         FirstName: item.FirstName,
         LastName: item.LastName,
         Branch: item.Branch,
-        NoOfBacklogs: item.NoOfBacklogs,
+        NoOfBacklogs: item.Backlogs,
         Role: item.Role,
       });
       return null;
     });
   }
   return (
-    <div>
-     
+    <div
+      style={{ marginLeft: "100px", marginRight: "70px", marginTop: "170px" }}
+    >
       <MaterialTable
         title={title}
         columns={tableColumns}
@@ -53,7 +57,7 @@ function Presentation({ people }) {
           selection: true,
           exportButton: true,
         }}
-      /> 
+      />
     </div>
   );
 }
