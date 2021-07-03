@@ -18,7 +18,7 @@ import { Link } from "react-router-dom";
 import { Redirect } from "react-router";
 import MuiAlert from "@material-ui/lab/Alert";
 import { useStyles } from "../../../styles/styles";
-
+import SignUp from "../SignUp";
 import { CustomField } from "../../../../../shared/TextFields";
 
 function Alert(props) {

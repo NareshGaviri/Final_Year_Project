@@ -24,7 +24,7 @@ const modules = [
     text: "Publish",
     icon: <PublishIcon />,
     moduleName: "publish",
-    link: "/Table",
+    link: "/publish",
   },
 
   // {

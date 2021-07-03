@@ -13,7 +13,7 @@ export class Container extends Component {
       password: "",
       fName: "",
       lName: "",
-      role:""
+      role: "",
     };
   }
   handleChange = (e) => {
@@ -24,7 +24,7 @@ export class Container extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.signUp(this.state);
-    console.log(this.state)
+    console.log("state", this.state);
   };
   render() {
     const { signUp, authSignUp, auth } = this.props;
@@ -44,6 +44,7 @@ export class Container extends Component {
 }
 const mapSateToProps = (state) => {
   const { auth } = state.firebase;
+  console.log("auth🚀", auth);
   console.log(state.authenticate.authSignUp.authSignUp);
   return {
     authSignUp: state.authenticate.authSignUp.authSignUp,

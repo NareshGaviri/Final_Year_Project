@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import SignUp from "./Services/Authentication/components/Authentication/SignUp";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ForgotPassword from "./Services/Authentication/components/Authentication/ForgotPassword";
-import NavBar from "./Services/Dashboard/NavBar";
+import NavBar from "./Services/Dashboard/NavBar/components/NavBar";
 import { store } from "./store/store/store";
 import Student from "./Services/Register/components/Student";
 import Register from "./Services/Register/components/Register";
@@ -21,6 +21,8 @@ function App() {
             <Route path="/SignUp" component={SignUp} />
             <Route path="/Student/:RegNo" component={Student} />
             <Route path="/changePassword" component={ForgotPassword} />
+           
+            
           </Switch>
         </BrowserRouter>
       </div>

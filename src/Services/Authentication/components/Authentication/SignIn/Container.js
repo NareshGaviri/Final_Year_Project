@@ -3,6 +3,8 @@ import { logIn } from "../../../middleware/index";
 import Presentation from "./Presentation";
 import { connect } from "react-redux";
 import {auth} from "../../../../../config/fbConfig"
+import { compose } from "redux";
+import { firestoreConnect } from "react-redux-firebase";
 export class Container extends Component {
   constructor(props) {
     super(props);
@@ -39,13 +41,15 @@ export class Container extends Component {
     );
   }
 }
-const mapStateToProps = (state) => {
-  console.log("line-37-container", state.authenticate.auth.authStatus);
+const mapStateToProps = (state,ownProps) => {
+  console.log("line-37-container", state.firestore.data);
   const { auth } = state.firebase;
   return {
     authStatus: state.authenticate.auth.authStatus,
     authError: state.authenticate.auth.authError,
+    collectionData : state.authenticate.auth.collectionData,
     auth: auth,
+    
   };
 };
 const mapDispatchToProps = (dispatch) => {
@@ -53,4 +57,7 @@ const mapDispatchToProps = (dispatch) => {
     login: (creds) => dispatch(logIn(creds)),
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(Container);
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  firestoreConnect([{ collection: "STUDENTS" }])
+)(Container);

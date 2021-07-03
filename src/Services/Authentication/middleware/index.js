@@ -9,8 +9,8 @@ import {
   signOutSuccess,
   signOutFaliure,
 } from "../actions/actionCreators";
-import firebase from "../../../config/fbConfig"
-import {db} from "../../../config/fbConfig"
+import firebase from "../../../config/fbConfig";
+import { db } from "../../../config/fbConfig";
 export const logIn = (credentials) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     // const firebase = getFirebase();
@@ -19,13 +19,13 @@ export const logIn = (credentials) => {
     firebase
       .auth()
       .signInWithEmailAndPassword(credentials.email, credentials.password)
-      .then(({user}) => {
-        db
-          .collection("USERS").doc(user.uid)
+      .then(({ user }) => {
+        db.collection("USERS")
+          .doc(user.uid)
           .get()
           .then((doc) => {
-            console.log(doc.data())
-            dispatch(authSuccess(doc.data()))
+            console.log("⏳", doc.data());
+            dispatch(authSuccess(doc.data()));
           });
       })
       .catch((error) => {
@@ -45,7 +45,8 @@ export const signUp = (newUser) => {
       lName: newUser.lName,
       createdAt: new Date(),
       role: newUser.role,
-      email: newUser.email
+      email: newUser.email,
+      // rollNumber: newUser.rollNumber,
     };
     dispatch(signUpRequest());
     firebase
@@ -73,7 +74,7 @@ export const _signOut = () => {
       .auth()
       .signOut()
       .then((data) => {
-        console.log(data)
+        console.log(data);
         dispatch(signOutSuccess());
       })
       .catch((error) => {

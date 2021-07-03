@@ -8,8 +8,8 @@ import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
-import SignIn from "../../Authentication/components/Authentication/SignIn"
-import modules from "../../../modules";
+import SignIn from "../../../../Authentication/components/Authentication/SignIn";
+import modules from "../../../../../modules";
 
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
@@ -18,13 +18,16 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import clsx from "clsx";
 import Tooltip from "@material-ui/core/Tooltip";
-import { useStyles } from "../styles/styles";
+import { useStyles } from "../../../styles/styles";
 import PropTypes from "prop-types";
 import { Button, Menu, MenuItem, useTheme } from "@material-ui/core";
 import { Redirect } from "react-router";
 import { Link, useLocation } from "react-router-dom";
 
-import Student from "../../Register/components/Student"
+import Student from "../../../../Register/components/Student";
+
+import StudentLoginData from "../StudentLoginData";
+
 function Presentation(props) {
   const { _signOut, auth, usersData, people, collectionData } = props;
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -48,14 +51,13 @@ function Presentation(props) {
 
   const classes = useStyles();
   const theme = useTheme();
-
   return (
     <div>
       {collectionData ? (
         <div>
           {collectionData.role === "admin" ? (
             <div className={classes.root}>
-              {!auth.uid ? <Redirect to="/signin" /> : null}
+              {!auth.uid ? <Redirect to={`/signin`} /> : null}
 
               <div>
                 <CssBaseline />
@@ -120,15 +122,19 @@ function Presentation(props) {
                   <Divider />
                   {modules.map((icon) => {
                     return (
-                      <List >
-                      <Link style={{textDecoration:"none",color:"black"}} onClick={handleDrawerClose} to={icon.link}>
-                        <ListItem>
-                          <Tooltip title={icon.text}>
-                            <ListItemIcon>{icon.icon}</ListItemIcon>
-                          </Tooltip>
-                          <ListItemText primary={icon.text} />
-                        </ListItem>
-                      </Link>
+                      <List>
+                        <Link
+                          style={{ textDecoration: "none", color: "black" }}
+                          onClick={handleDrawerClose}
+                          to={icon.link}
+                        >
+                          <ListItem>
+                            <Tooltip title={icon.text}>
+                              <ListItemIcon>{icon.icon}</ListItemIcon>
+                            </Tooltip>
+                            <ListItemText primary={icon.text} />
+                          </ListItem>
+                        </Link>
                       </List>
                     );
                   })}
@@ -148,7 +154,6 @@ function Presentation(props) {
                   })}
                 >
                   <Toolbar>
-                   
                     <IconButton
                       aria-label="account of current user"
                       aria-controls="menu-appbar"
@@ -159,7 +164,6 @@ function Presentation(props) {
                     <Typography variant="h6" noWrap>
                       STUDENT
                     </Typography>
-
                     <div className={classes.navButton}>
                       <Button onClick={_signOut} color="inherit">
                         LogOut
@@ -168,10 +172,16 @@ function Presentation(props) {
                   </Toolbar>
                 </AppBar>
               </div>
+
+                  {/* Student login data */}
+
+              <StudentLoginData />
             </div>
           )}
         </div>
-      ) : <SignIn/>}
+      ) : (
+        <SignIn />
+      )}
     </div>
   );
 }
