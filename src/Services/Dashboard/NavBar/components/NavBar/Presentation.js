@@ -120,6 +120,7 @@ function Presentation(props) {
                     </IconButton>
                   </div>
                   <Divider />
+
                   {modules.map((icon) => {
                     return (
                       <List>
@@ -145,37 +146,38 @@ function Presentation(props) {
             <div className={classes.root}>
               {!auth.uid ? <Redirect to="/signin" /> : null}
 
-              <div>
-                <CssBaseline />
-                <AppBar
-                  position="fixed"
-                  className={clsx(classes.appBar, {
-                    [classes.appBarShift]: open,
-                  })}
-                >
-                  <Toolbar>
-                    <IconButton
-                      aria-label="account of current user"
-                      aria-controls="menu-appbar"
-                      aria-haspopup="true"
-                      onClick={handleMenu}
-                      color="inherit"
-                    ></IconButton>
-                    <Typography variant="h6" noWrap>
-                      STUDENT
-                    </Typography>
-                    <div className={classes.navButton}>
-                      <Button onClick={_signOut} color="inherit">
-                        LogOut
-                      </Button>
-                    </div>
-                  </Toolbar>
-                </AppBar>
-              </div>
-
-                  {/* Student login data */}
-
-              <StudentLoginData />
+              {collectionData.role === "student" ? (
+                <div>
+                  <CssBaseline />
+                  <AppBar
+                    position="fixed"
+                    className={clsx(classes.appBar, {
+                      [classes.appBarShift]: open,
+                    })}
+                  >
+                    <Toolbar>
+                      <IconButton
+                        aria-label="account of current user"
+                        aria-controls="menu-appbar"
+                        aria-haspopup="true"
+                        onClick={handleMenu}
+                        color="inherit"
+                      ></IconButton>
+                      <Typography variant="h6" noWrap>
+                        STUDENT
+                      </Typography>
+                      <div className={classes.navButton}>
+                        <Button onClick={_signOut} color="inherit">
+                          LogOut
+                        </Button>
+                      </div>
+                    </Toolbar>
+                  </AppBar>
+                  <StudentLoginData />
+                </div>
+              ) : (
+                <SignIn />
+              )}
             </div>
           )}
         </div>
