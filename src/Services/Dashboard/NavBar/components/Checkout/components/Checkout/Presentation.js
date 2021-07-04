@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Payment from "../Payment";
 import { db } from "../../../../../../../config/fbConfig";
 import { connect } from "react-redux";
+import SignIn from "../../../../../../Authentication/components/Authentication/SignIn";
 export class Presentation extends Component {
   constructor(props) {
     super(props);
@@ -15,7 +16,8 @@ export class Presentation extends Component {
       feesPay: "",
       ammount: "",
       notDone: false,
-      info: `Ammount Payed ${100}`,
+      info: `Amount Payed ${100}`,
+      regNo:""
     };
   }
   nextStep = () => {
@@ -36,24 +38,27 @@ export class Presentation extends Component {
   };
 
   handleSubmit = (e) => {
-    e.preventDefault();
-    if (this.props.collectionData) {
-      var id = this.props.collection.rollNumber;
-    }
-    const { info } = this.state;
-    db.collection("PAID_REGISTRATION_FEE")
-      .doc(id)
-      .set({ info })
-      .then(() => {
-        alert("Payment Done Successfully");
-      })
-      .catch((error) => {
-        console.log(error)
-        alert("Please cheack .........");
-        this.setState({
-          notDone:true
-        })
-      });
+      e.preventDefault();
+      if (this.props.collectionData.rollNumber) {
+        var id = this.props.collectionData.rollNumber;
+        
+         const {info, regNo}= this.state  
+        db.collection("PAID_REGISTRATION_FEE")
+          .doc(id)
+          .set({ info,regNo })
+          .then(() => {
+            alert("Payment Done Successfully");
+          })
+          .catch((error) => {
+            console.log(error);
+            alert("Please cheack .........");
+            this.setState({
+              notDone: true,
+            });
+          });
+      } else {
+        <SignIn />;
+      }
   };
 
   render() {

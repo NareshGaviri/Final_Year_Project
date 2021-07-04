@@ -2,6 +2,7 @@ import HistoryIcon from "@material-ui/icons/History";
 import ReportIcon from "@material-ui/icons/Report";
 import ViewArrayTwoToneIcon from "@material-ui/icons/ViewArrayTwoTone";
 import PublishIcon from "@material-ui/icons/Publish";
+import AccountBalanceWalletIcon from '@material-ui/icons/AccountBalanceWallet';
 import { IoIosPeople } from "react-icons/io";
 const modules = [
   // {
@@ -28,10 +29,11 @@ const modules = [
     link: "/publish",
   },
 
-  // {
-  //   text:"History",
-  //   icon:<HistoryIcon/>,
-  //   moduleName:"history"
-  // }
+  {
+    text:"Registration",
+    icon:<AccountBalanceWalletIcon/>,
+    moduleName:"registrationFee",
+    link:"/registrationFee"
+  }
 ];
 export default modules;

@@ -15,6 +15,7 @@ function Presentation(props) {
     date,
     feesDetails,
     ammount,
+    regNo
   } = props;
   console.log("feesDetails😁😊😃", feesDetails);
   return (
@@ -60,7 +61,7 @@ function Presentation(props) {
           <Grid item xs={12} md={6}>
             <TextField
               required
-              id="date"
+              id="ammount"
               value={ammount}
               onChange={handleChange}
               label="Ammount"
@@ -80,10 +81,23 @@ function Presentation(props) {
             />
           </Grid>
           <Grid item xs={12} md={6}>
+            <TextField
+              required
+              id="regNo"
+              label="Registration Number"
+              value={regNo}
+              onChange={handleChange}
+              helperText="College Registration Number For Reference"
+              fullWidth
+              autoComplete="cc-csc"
+            />
+          </Grid>
+          <Grid item xs={12} md={6}>
             {feesDetails.DueFee === 0 &&
             cardName !== "" &&
             cardNumber !== "" &&
             cvv !== "" &&
+            regNo!==""&&
             date !== "" ? (
               <Button
                 onClick={nextStep}

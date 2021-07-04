@@ -6,15 +6,12 @@ import SignIn from "../../../../../../Authentication/components/Authentication/S
 function Container(props) {
     const {collectionData,feesDetails,getFeesData} = props
     useEffect(()=>{
-        if(collectionData){
+        if(collectionData.rollNumber){
             var id = collectionData.rollNumber 
             console.log(id)
             getFeesData(id)
         }else{
             <SignIn/>
-        }
-        if(!collectionData){
-            return <SignIn/>
         }
     },[])
 
@@ -28,7 +25,7 @@ function Container(props) {
 const mapStateToProps = (state) => {
   return {
     feesDetails: state.feesReducer.feesReducer.dataFees,
-    collectionData: state.authenticate.auth.collectionData,
+    collectionData: state.authenticate.auth.collectionData
   };
 };
 const mapDispatchToProps = (dispatch) => {
