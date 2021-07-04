@@ -16,7 +16,7 @@ import Container from "@material-ui/core/Container";
 
 function Presentation(props) {
   const classes = useStyles();
-  const { handleChange, handleSubmit, auth, email, password } = props;
+  const { handleChange, handleSubmit, auth, email, password, signUp,authSignUp } = props;
 
   return (
     <div className={classes.backGroundSignIn}>
@@ -87,16 +87,32 @@ function Presentation(props) {
                     </Link>
                   </Grid>
                   <Grid item xs>
+
                     <Link to="/signup" variant="body">
-                      <Button
-                        style={{ textDecoration: "none" }}
-                        variant="contained"
-                        type="button"
-                        color="primary"
-                      >
-                        SignUp
-                      </Button>
-                    </Link>
+                    {authSignUp==="SignUp Success"  ? 
+                     
+                        <Button
+                          style={{ textDecoration: "none" }}
+                          variant="contained"
+                          type="button"
+                          color="primary"
+                          disabled
+                        >
+                          SignUp
+                        </Button> :
+                      
+                        <Button
+                          style={{ textDecoration: "none" }}
+                          variant="contained"
+                          type="button"
+                          color="primary"
+                          
+                        >
+                          SignUp
+                        </Button>
+                      
+                    }
+                      </Link>
                   </Grid>
                 </CardActions>
               </form>

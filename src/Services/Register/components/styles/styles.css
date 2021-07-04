@@ -13,7 +13,7 @@
     left: calc(30% - 200px);
     display: flex;
   }
-  
+
   .card {
     display: flex;
     height: 480px;
@@ -40,6 +40,7 @@
     position: relative;
     left: 50px;
     transition: 0.4s ease-out;
+   
   }
   
   .title {
@@ -60,7 +61,7 @@
   
   .emptybar {
     background-color: #2e3033;
-    width: 100%;
+    width: 1000px;
     height: 100%;
   }
   
@@ -68,7 +69,7 @@
     position: absolute;
     top: 0px;
     z-index: 3;
-    width: 0px;
+    width: 10px;
     height: 100%;
     background: rgb(0, 154, 217);
     background: linear-gradient(
@@ -93,6 +94,7 @@
     display: grid;
     align-items: start;
     justify-items: start;
+   
   }
   
   .stroke {
@@ -100,6 +102,7 @@
     stroke-dasharray: 360;
     stroke-dashoffset: 360;
     transition: 0.6s ease-out;
+    background-color:red;
   }
   
   svg {
@@ -110,5 +113,7 @@
   .card:hover .stroke {
     stroke-dashoffset: 100;
     transition: 0.6s ease-out;
+    
+   
   }
   

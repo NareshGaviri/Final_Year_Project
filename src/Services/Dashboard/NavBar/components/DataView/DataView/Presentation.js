@@ -1,5 +1,5 @@
 import React from "react";
-import "../Styles/styles.css";
+import "../Styles/stylesDataView.css";
 function Presentation({ dataVerifyId }) {
   console.log(dataVerifyId);
   return (
@@ -8,8 +8,8 @@ function Presentation({ dataVerifyId }) {
         <div className="card">
           <h3 className="title">Personal Details</h3>
           <div className="bar">
-            {/* <div className="emptybar"></div> */}
-            {/* <div className="filledbar"></div> */}
+            <div className="emptybar"></div> 
+           <div className="filledbar"></div>
           </div>
           <div className="circle">
             <h2>
@@ -29,8 +29,8 @@ function Presentation({ dataVerifyId }) {
         <div className="card">
           <h3 className="title">Acdamic details</h3>
           <div className="bar">
-            {/* <div className="emptybar"></div> */}
-            {/* <div className="filledbar"></div> */}
+            <div className="emptybar"></div>
+             <div className="filledbar"></div>
           </div>
           <div className="circle">
             <h2>

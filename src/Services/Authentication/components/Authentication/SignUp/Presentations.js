@@ -1,24 +1,19 @@
 import React, { useState } from "react";
 import SasiLogo from "../../../../../Assets/Sasi.png";
 import {
-  Card,
   CardActions,
-  CardContent,
   Button,
   Snackbar,
   Paper,
-  Box,
-  Grid,
-  Checkbox,
-  FormControlLabel,
   CssBaseline,
   Container,
+  TextField,
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { Redirect } from "react-router";
 import MuiAlert from "@material-ui/lab/Alert";
 import { useStyles } from "../../../styles/styles";
-import SignUp from "../SignUp";
+
 import { CustomField } from "../../../../../shared/TextFields";
 
 function Alert(props) {
@@ -51,6 +46,8 @@ function Presentations(props) {
     signUp,
     role,
     auth,
+    rollNumber,
+    onChangeAlphaNumericInput,
   } = props;
 
   return (
@@ -110,7 +107,6 @@ function Presentations(props) {
                   handleChange={handleChange}
                 />
                 <br />
-                <br />
                 <CustomField
                   id="role"
                   required
@@ -119,6 +115,21 @@ function Presentations(props) {
                   value={role}
                   handleChange={handleChange}
                 />
+                <br />
+                <br />
+                <TextField
+                  id="rollNumber"
+                  required
+                  size="small"
+                  variant="outlined"
+                  name="rollNumber"
+                  type="alphanumeric"
+                  label="Roll Number"
+                  value={rollNumber}
+                  onChange={handleChange}
+                  inputProps={{ style: { width: 350 } }}
+                />
+
                 <br />
                 <br />
                 <CardActions>
@@ -130,7 +141,6 @@ function Presentations(props) {
                   >
                     Signup
                   </Button>
-
                   {signUp ? (
                     <Snackbar
                       open={open}

@@ -27,7 +27,7 @@ export class Container extends Component {
   }; 
   
   render() {
-    const { authStatus, authError, auth } = this.props;
+    const { authStatus, authError, auth,signUp,authSignUp } = this.props;
     return (
       <div>
         <Presentation
@@ -36,6 +36,8 @@ export class Container extends Component {
           handleSubmit={this.handleSubmit}
           authError={authError}
           auth={auth}
+          signUp={signUp}
+          authSignUp={authSignUp}
         />
       </div>
     );
@@ -49,7 +51,8 @@ const mapStateToProps = (state,ownProps) => {
     authError: state.authenticate.auth.authError,
     collectionData : state.authenticate.auth.collectionData,
     auth: auth,
-    
+    signUp : state.authenticate.authSignUp.signUp,
+    authSignUp : state.authenticate.auth.authSignUp,
   };
 };
 const mapDispatchToProps = (dispatch) => {

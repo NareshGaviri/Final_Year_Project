@@ -46,7 +46,7 @@ export const signUp = (newUser) => {
       createdAt: new Date(),
       role: newUser.role,
       email: newUser.email,
-      // rollNumber: newUser.rollNumber,
+       rollNumber: newUser.rollNumber,
     };
     dispatch(signUpRequest());
     firebase

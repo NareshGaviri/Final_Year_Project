@@ -14,6 +14,7 @@ export class Container extends Component {
       fName: "",
       lName: "",
       role: "",
+      rollNumber: ""
     };
   }
   handleChange = (e) => {
@@ -21,10 +22,18 @@ export class Container extends Component {
       [e.target.id]: e.target.value,
     });
   };
+  onChangeAlphaNumericInput(e) {
+    const value = e.target.value;
+    const regex = /^[0-9a-zA-Z(\-)]+$/; //this will admit letters, numbers and dashes
+    if (value.match(regex) || value === "") {
+      this.setState({ rollNumber: value });
+    }
+  }
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.signUp(this.state);
     console.log("state", this.state);
+    
   };
   render() {
     const { signUp, authSignUp, auth } = this.props;

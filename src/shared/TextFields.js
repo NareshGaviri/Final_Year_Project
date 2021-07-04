@@ -1,8 +1,8 @@
-import React,{useState} from "react"
+import React, { useState } from "react";
 import { InputAdornment, IconButton } from "@material-ui/core";
 import { Visibility, VisibilityOff } from "@material-ui/icons";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
-import validate from "./validations"
+import validate from "./validations";
 import {
   TextField,
   MenuItem,
@@ -22,8 +22,8 @@ export const EmailInput = ({
   variant = "outlined",
 }) => {
   return (
-    <ValidatorForm autoComplete="on" onSubmit={handleSubmit} >
-    <TextValidator
+    <ValidatorForm autoComplete="on" onSubmit={handleSubmit}>
+      <TextValidator
         label={label}
         name={name}
         id={id}
@@ -60,30 +60,30 @@ export const PasswordInput = ({
   };
   return (
     <ValidatorForm autoComplete="on" onSubmit={handleSubmit}>
-    <TextValidator
-      password
-      type={type}
-      label={label}
-      name={name}
-      id={id}
-      className={className}
-      type={showPassword ? "text" : "password"}
-      onChange={handleChange}
-      variant={variant}
-      size="small"
-      required={required}
-      value={value}
-      fullWidth
-      InputProps={{
-        endAdornment: (
-          <InputAdornment position="end">
-            <IconButton onClick={handleClickShowPassword}>
-              {showPassword ? <VisibilityOff /> : <Visibility />}
-            </IconButton>
-          </InputAdornment>
-        ),
-      }}
-    />
+      <TextValidator
+        password
+        type={type}
+        label={label}
+        name={name}
+        id={id}
+        className={className}
+        type={showPassword ? "text" : "password"}
+        onChange={handleChange}
+        variant={variant}
+        size="small"
+        required={required}
+        value={value}
+        fullWidth
+        InputProps={{
+          endAdornment: (
+            <InputAdornment position="end">
+              <IconButton onClick={handleClickShowPassword}>
+                {showPassword ? <VisibilityOff /> : <Visibility />}
+              </IconButton>
+            </InputAdornment>
+          ),
+        }}
+      />
     </ValidatorForm>
   );
 };
@@ -115,14 +115,42 @@ export const NameInput = ({
     />
   );
 };
+export const AlphaNumericInput = ({
+  label,
+  name,
+  handleChange,
+  required,
+  value = "",
+  variant = "outlined",
+}) => {
+  return (
+    <TextField
+      label={label}
+      name={name}
+      onChange={(e) =>
+        e.target.value.match(/^[a-z0-9]+$/i) || e.target.value.length === 0
+          ? handleChange(e)
+          : () => {}
+      }
+      required={required}
+      value={value}
+      variant={variant}
+      size="small"
+      fullWidth
+    />
+  );
+};
 export function CustomField(details) {
   switch (details.type) {
     case "email":
-      return <EmailInput {...details} />
+      return <EmailInput {...details} />;
 
     case "password":
       return <PasswordInput {...details} />;
-      case "name" : return <NameInput {...details} />;
+    case "name":
+      return <NameInput {...details} />;
+    case "alphanumeric":
+      return <AlphaNumericInput {...details} />;
     default:
       return <div />;
   }

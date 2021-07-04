@@ -1,6 +1,4 @@
-import { Button } from "@material-ui/core";
 import React from "react";
-import { Link } from "react-router-dom";
 import "../styles/styles.css"
 function Presentation({ peopleData }) {
   console.log(peopleData);
@@ -17,7 +15,7 @@ function Presentation({ peopleData }) {
           <div className="circle">
             <h2>
               FirstName :{" "}
-              <i style={{ display: "underline" }}>{peopleData.FirstName}</i>
+              <i >{peopleData.FirstName}</i>
             </h2>
             <h2>
               LastName : <i>{peopleData.LastName}</i>
@@ -29,24 +27,7 @@ function Presentation({ peopleData }) {
           </div>
         </div>
         </div>
-        // <table>
-        //   <thead>
-        //     <tr>
-        //       <th>RegNo</th>
-        //       <th>FirstName</th>
-        //       <th>LastName</th>
-        //       <th>NoOfBacklogs</th>
-        //     </tr>
-        //   </thead>
-        //   <tbody>
-        //     <tr>
-        //       <td>{peopleData.RegNo}</td>
-        //       <td>{peopleData.FirstName}</td>
-        //       <td>{peopleData.LastName}</td>
-        //       <td>{peopleData.NoOfBacklogs}</td>
-        //     </tr>
-        //   </tbody>
-        // </table>
+      
       ) : (
         <div>Loading......</div>
       )}
