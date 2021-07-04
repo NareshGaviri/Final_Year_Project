@@ -24,7 +24,8 @@
     "redux-firestore": "^0.15.0",
     "redux-thunk": "^2.3.0",
     "request": "^2.88.2",
-    "web-vitals": "^1.1.2"
+    "web-vitals": "^1.1.2",
+    "xlsx": "^0.17.0"
   },
   "scripts": {
     "start": "react-scripts start",
