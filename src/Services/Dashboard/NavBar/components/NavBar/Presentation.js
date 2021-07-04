@@ -10,7 +10,7 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import SignIn from "../../../../Authentication/components/Authentication/SignIn";
 import modules from "../../../../../modules";
-
+import studentModules from "../../../../../studentModules";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
@@ -173,6 +173,51 @@ function Presentation(props) {
                       </div>
                     </Toolbar>
                   </AppBar>
+
+                  <Drawer
+                    variant="permanent"
+                    className={clsx(classes.drawer, {
+                      [classes.drawerOpen]: open,
+                      [classes.drawerClose]: !open,
+                    })}
+                    classes={{
+                      paper: clsx({
+                        [classes.drawerOpen]: open,
+                        [classes.drawerClose]: !open,
+                      }),
+                    }}
+                  >
+                    <div className={classes.toolbar}>
+                      <IconButton onClick={handleDrawerClose}>
+                        {theme.direction === "rtl" ? (
+                          <ChevronRightIcon />
+                        ) : (
+                          <ChevronLeftIcon />
+                        )}
+                      </IconButton>
+                    </div>
+                    <Divider />
+
+                    {studentModules.map((icon) => {
+                      return (
+                        <List>
+                          <Link
+                            style={{ textDecoration: "none", color: "black" }}
+                            onClick={handleDrawerClose}
+                            to={icon.link}
+                          >
+                            <ListItem>
+                              <Tooltip title={icon.text}>
+                                <ListItemIcon>{icon.icon}</ListItemIcon>
+                              </Tooltip>
+                              <ListItemText primary={icon.text} />
+                            </ListItem>
+                          </Link>
+                        </List>
+                      );
+                    })}
+                  </Drawer>
+
                   <StudentLoginData />
                 </div>
               ) : (
