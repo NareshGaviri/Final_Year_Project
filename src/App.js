@@ -10,7 +10,6 @@ import Student from "./Services/Register/components/Student";
 import Register from "./Services/Register/components/Register";
 import StudentsData from "./Services/Register/components/AdminViewStudent/StudentsData"
 import ExcelToJson from "./Services/Register/components/ExcelInvite/ExcelToJson"
-
 function App() {
   return (
     <Provider store={store}>
