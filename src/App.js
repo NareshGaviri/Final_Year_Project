@@ -15,10 +15,10 @@ function App() {
   return (
     <Provider store={store}>
       <div className="App">
+     
         <BrowserRouter>
           <NavBar />
           <Switch>
-        
             {/* <Route exact path="/" component={NavBar} /> */}
             <Route path="/data" component={Register} />
             <Route path="/signIn" component={SignIn} />
