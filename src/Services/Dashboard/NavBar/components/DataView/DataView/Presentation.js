@@ -3,11 +3,11 @@ import React from "react";
 import "../Styles/stylesDataView.css";
 
 function Presentation({ dataVerifyId }) {
-  console.log(dataVerifyId);
+  console.log("dataVerifyId",dataVerifyId);
 
   return (
-    <div>
-      <div className="body" style={{ padding: "100px" }}>
+    <div style={{top:"10px"}}>
+      <div className="body" >
         {/* <Checkout/> */}
 
         <div className="container">
@@ -35,9 +35,9 @@ function Presentation({ dataVerifyId }) {
               <h2>
                 Mobile Number :<i> {dataVerifyId.Mobile}</i>
               </h2>
-              {/* <h2>
-                ParentOccupation :<i>{dataVerifyId.ParentOccupation}</i>
-              </h2> */}
+              <h2>
+                ParentOccupation :<i>{dataVerifyId.ParentOcp }</i>
+              </h2>
               <h2>
                 Email : <i>{dataVerifyId.Email}</i>
               </h2>

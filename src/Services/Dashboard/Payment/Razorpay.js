@@ -1,34 +1,75 @@
 import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { db } from "../../../config/fbConfig";
+import { getFeesData } from "../NavBar/components/Checkout/middleware";
+import { indexMiddleware } from "../NavBar/middleware";
+import SignIn from "../../Authentication/components/Authentication/SignIn";
+import { Button } from "@material-ui/core";
 // import "./styles.css";
 
-export default function App() {
-  const options = {
-    key: "rzp_test_PmrezlZGeNy1qE",
-    amount: "100", //  = INR 1
-    name: "Acme shop",
-    description: "some description",
-    image: "https://cdn.razorpay.com/logos/7K3b6d18wHwKzL_medium.png",
-    handler: function (response) {
-      alert(response.razorpay_payment_id);
-    },
-    prefill: {
-      name: "Naresh",
-      contact: "949179541",
-      email: "test1@gmail.com"
-    },
-    notes: {
-      address: "some address"
-    },
-    theme: {
-      color: "blue",
-      hide_topbar: false
-    }
-  };
-
+function Razor(props) {
+  const { collectionData, indexMiddleware, getFeesData, feesReducer } = props;
+  console.log("feesReducer", feesReducer);
+  if (collectionData) {
+    const { fName, email, mobile, lName } = collectionData;
+    console.log("collectionData", collectionData);
+    var options = {
+      key: "rzp_test_PmrezlZGeNy1qE",
+      amount: "10000",
+      name: "RegiStration Fee",
+      description: "",
+      // image: "https://cdn.razorpay.com/logos/7K3b6d18wHwKzL_medium.png",
+      handler: function (response) {
+        alert(response.razorpay_payment_id);
+      },
+      prefill: {
+        name: fName + lName,
+        contact: mobile,
+        email: email,
+      },
+      notes: {
+        address: "some address",
+      },
+      theme: {
+        color: "blue",
+        hide_topbar: false,
+      },
+    };
+  }
   const openPayModal = () => {
     var rzp1 = new window.Razorpay(options);
     rzp1.open();
+    if (collectionData) {
+      const { amount } = options;
+      const ammoutPaid = amount / 100;
+      console.log(ammoutPaid);
+      var RegNo = collectionData.rollNumber;
+      var Name = collectionData.fName;
+      db.collection("PAID_REGISTRATION_FEE")
+        .doc(RegNo)
+        .set({ ammoutPaid, RegNo, Name })
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   };
+
+  useEffect(() => {
+    if (collectionData) {
+      if (collectionData.rollNumber) {
+        var id = collectionData.rollNumber;
+        getFeesData(id);
+      } else {
+        <SignIn />;
+      }
+    }
+    if (!collectionData) {
+      <SignIn />;
+    }
+  }, []);
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -38,10 +79,41 @@ export default function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div
+      className="App"
+      style={{ display: "flex", marginLeft: "90px", marginTop: "20px" }}
+    >
       <br></br>
       <br></br>
-      <button className="btn btn-primary"onClick={openPayModal}>Pay with Razorpay</button>
+      {feesReducer.DueFee === 0  && feesReducer.LibraryFee===0? (
+        <Button onClick={openPayModal} variant="contained" color="secondary">
+          Pay with Razorpay
+        </Button>
+      ) : (
+        <Button
+          disabled
+          onClick={openPayModal}
+          variant="contained"
+          color="primary"
+        >
+          Pay with Razorpay
+        </Button>
+      )}
     </div>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    collectionData: state.authenticate.auth.collectionData,
+    dataVerifyId: state.dataVerifyId.dataVerify.dataVerify,
+    feesReducer: state.feesReducer.feesReducer.dataFees,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    indexMiddleware: (id) => dispatch(indexMiddleware(id)),
+    getFeesData: (id) => dispatch(getFeesData(id)),
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Razor);

@@ -14,6 +14,7 @@ function Presentation({ people }) {
     { field: "Branch", title: "Branch" },
     { field: "Backlogs", title: "NoOfBacklogs"},
     { field: "Role", title: "Role" },
+    {field:"Address",title:"Address"}
   ];
   const title = "STUDENT DATA";
   let usersInfoData = [];
@@ -27,6 +28,7 @@ function Presentation({ people }) {
         Branch: item.Branch,
         Backlogs: item.Backlogs,
         Role: item.Role,
+        Address: item.Address
       });
       return null;
     });

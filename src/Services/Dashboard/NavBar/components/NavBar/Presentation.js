@@ -23,7 +23,7 @@ import PropTypes from "prop-types";
 import { Button, Menu, MenuItem, useTheme } from "@material-ui/core";
 import { Redirect } from "react-router";
 import { Link, useLocation } from "react-router-dom";
-
+import Razorpay from "../../../Payment/Razorpay"
 import Student from "../../../../Register/components/Student";
 
 import StudentLoginData from "../StudentLoginData";
@@ -173,52 +173,13 @@ function Presentation(props) {
                       </div>
                     </Toolbar>
                   </AppBar>
-
-                  <Drawer
-                    variant="permanent"
-                    className={clsx(classes.drawer, {
-                      [classes.drawerOpen]: open,
-                      [classes.drawerClose]: !open,
-                    })}
-                    classes={{
-                      paper: clsx({
-                        [classes.drawerOpen]: open,
-                        [classes.drawerClose]: !open,
-                      }),
-                    }}
-                  >
-                    <div className={classes.toolbar}>
-                      <IconButton onClick={handleDrawerClose}>
-                        {theme.direction === "rtl" ? (
-                          <ChevronRightIcon />
-                        ) : (
-                          <ChevronLeftIcon />
-                        )}
-                      </IconButton>
-                    </div>
-                    <Divider />
-
-                    {studentModules.map((icon) => {
-                      return (
-                        <List>
-                          <Link
-                            style={{ textDecoration: "none", color: "black" }}
-                            onClick={handleDrawerClose}
-                            to={icon.link}
-                          >
-                            <ListItem>
-                              <Tooltip title={icon.text}>
-                                <ListItemIcon>{icon.icon}</ListItemIcon>
-                              </Tooltip>
-                              <ListItemText primary={icon.text} />
-                            </ListItem>
-                          </Link>
-                        </List>
-                      );
-                    })}
-                  </Drawer>
+                  <div style={{padding:"45px",marginTop:"25px",marginLeft:"570px"}}>
+                    <Razorpay/>
+                  </div>
+                  <div style={{}}>
 
                   <StudentLoginData />
+                  </div>
                 </div>
               ) : (
                 <SignIn />

@@ -2,7 +2,8 @@
   /* background-color: #100e17; */
   font-family: "Open Sans", sans-serif;
   /* margin-top :100px */
-  margin-left: -80px;
+  margin-left: -30px;
+  margin-top:-140px;
   --gutter: 2.5rem;
   grid-gap: var(--gutter);
   padding: var(--gutter);

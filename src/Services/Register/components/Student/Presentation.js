@@ -21,6 +21,7 @@ function Presentation({ peopleData }) {
               LastName : <i>{peopleData.LastName}</i>
             </h2>
             <h2>Regestration Number : {peopleData.RegNo}</h2>
+            <h2>Regestration Number : {peopleData.Address}</h2>
             {/* <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
       <circle class="stroke" cx="60" cy="60" r="50"/>
     </svg>  */}

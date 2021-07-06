@@ -1,6 +1,7 @@
 const initialState = {
     dataFees :[],
-    fees:false
+    fees:false,
+   
 }
 
 export default initialState

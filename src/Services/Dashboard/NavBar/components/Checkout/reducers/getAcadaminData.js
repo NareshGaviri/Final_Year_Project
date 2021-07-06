@@ -20,6 +20,8 @@ export const getAcadaminData = (state = initialState, action) => {
         dataFees: action.payload,
         fees: false,
       };
+
+   
     default:
       return state;
   }

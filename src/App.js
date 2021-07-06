@@ -29,7 +29,6 @@ function App() {
             <Route path="/changePassword" component={ForgotPassword} />
             <Route path="/StudentsData" component={StudentsData} />
             <Route path="/publish" component={ExcelToJson} />
-            <Route path="/payment" component={Razorpay}/>
             <Route path="/registrationFee" component={RegisterData}/>
           </Switch>
         </BrowserRouter>

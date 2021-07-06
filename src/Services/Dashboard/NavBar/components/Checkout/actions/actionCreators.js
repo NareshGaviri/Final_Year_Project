@@ -18,3 +18,4 @@ export const dataFailure=(payload)=>{
         payload
     }
 }
+

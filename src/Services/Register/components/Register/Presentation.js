@@ -26,6 +26,7 @@ function Presentation({ people }) {
     { field: "Branch", title: "Branch" },
     { field: "NoOfBacklogs", title: "NoOfBacklogs" },
     { field: "Role", title: "Role" },
+    {field:"Address",title:"Address"}
   ];
 
   const title = "ACADAMIC_DATA";
@@ -39,6 +40,7 @@ function Presentation({ people }) {
         Branch: item.Branch,
         NoOfBacklogs: item.Backlogs,
         Role: item.Role,
+        Address : item.Address
       });
       return null;
     });

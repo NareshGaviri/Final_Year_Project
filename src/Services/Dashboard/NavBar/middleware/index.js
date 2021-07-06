@@ -13,7 +13,7 @@ export const indexMiddleware = (id) => {
     if (collectionData) {
       if (collectionData.role === "student") {
         db.collection("STUDENTS")
-          .where("RegNo", "==", id)
+          .where("RegNo", "==", id)   
           .get()
           .then((data) => {
             data.docs.forEach((doc) => {
