@@ -10,13 +10,14 @@ import Student from "./Services/Register/components/Student";
 import Register from "./Services/Register/components/Register";
 import StudentsData from "./Services/Register/components/AdminViewStudent/StudentsData"
 import ExcelToJson from "./Services/Register/components/ExcelInvite/ExcelToJson"
-import Checkout from "./Services/Dashboard/NavBar/components/Checkout/components/Checkout"
+// import Checkout from "./Services/Dashboard/NavBar/components/Checkout/components/Checkout"
 import RegisterData from "./Services/Register/components/RegistrationData/RegisterData"
+import Checkout from "./Services/Dashboard/Payment/Checkout"
+import Razorpay from "./Services/Dashboard/Payment/Razorpay"
 function App() {
   return (
     <Provider store={store}>
       <div className="App">
-     
         <BrowserRouter>
           <NavBar />
           <Switch>
@@ -28,7 +29,7 @@ function App() {
             <Route path="/changePassword" component={ForgotPassword} />
             <Route path="/StudentsData" component={StudentsData} />
             <Route path="/publish" component={ExcelToJson} />
-            <Route path="/payment" component={Checkout}/>
+            <Route path="/payment" component={Razorpay}/>
             <Route path="/registrationFee" component={RegisterData}/>
           </Switch>
         </BrowserRouter>
