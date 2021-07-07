@@ -24,7 +24,8 @@ export const logIn = (credentials) => {
           .doc(user.uid)
           .get()
           .then((doc) => {
-            dispatch(authSuccess(doc.data()));
+            const data = doc.data()
+            dispatch(authSuccess(data))
           });
       })
       .catch((error) => {

@@ -14,8 +14,10 @@ function Razor(props) {
     getFeesData,
     feesReducer,
     paidRegistrationFee,
+    people,
+    dataVerifyId
   } = props;
-  console.log("feesReducer", feesReducer);
+  console.log("people", people);
   if (collectionData) {
     const { fName, email, mobile, lName } = collectionData;
     console.log("collectionData", collectionData);
@@ -67,7 +69,7 @@ function Razor(props) {
     if (collectionData) {
       if (collectionData.rollNumber) {
         var id = collectionData.rollNumber;
-        getFeesData(id);
+        indexMiddleware(id);
       } else {
         <SignIn />;
       }
@@ -104,21 +106,21 @@ function Razor(props) {
       <br />
       <br />
       {console.log("feesReducer.item", paidRegistrationFee)}
-
-      {feesReducer.DueFee === 0 && feesReducer.LibraryFee === 0 ? (
+      {people}
+      {dataVerifyId.DueFee === 0 && dataVerifyId.LibraryFee === 0 ? (
         <Button onClick={openPayModal} variant="contained" color="secondary">
           Pay with Razorpay
         </Button>
       ) : (
-        <Button
-          disabled
+       <Button
+         disabled
           onClick={openPayModal}
           variant="contained"
           color="primary"
         >
           Pay with Razorpay
         </Button>
-      )}
+      )} 
     </div>
   );
 }
@@ -127,14 +129,15 @@ const mapStateToProps = (state) => {
   return {
     collectionData: state.authenticate.auth.collectionData,
     dataVerifyId: state.dataVerifyId.dataVerify.dataVerify,
-    feesReducer: state.feesReducer.feesReducer.dataFees,
+    // feesReducer: state.feesReducer.feesReducer.dataFees,
     paidRegistrationFee: state.paidRegistrationFee.fees.feesData,
+    people : state.people.people.peopleData
   };
 };
 const mapDispatchToProps = (dispatch) => {
   return {
     indexMiddleware: (id) => dispatch(indexMiddleware(id)),
-    getFeesData: (id) => dispatch(getFeesData(id)),
+    // getFeesData: (id) => dispatch(getFeesData(id)),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Razor);

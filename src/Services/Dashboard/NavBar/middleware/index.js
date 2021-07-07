@@ -15,8 +15,8 @@ export const indexMiddleware = (id) => {
         db.collection("STUDENTS")
           .where("RegNo", "==", id)   
           .get()
-          .then((data) => {
-            data.docs.forEach((doc) => {
+          .then((res) => {
+            res.docs.forEach((doc) => {
               let data = doc.data();
               console.log(data);
               dispatch(dataVerifySuccess(data));

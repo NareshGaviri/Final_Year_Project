@@ -15,11 +15,12 @@ export const getFeesData = (id) => {
         db.collection("FEES")
           .where("RegNo", "==", id)
           .get()
-          .then((data) => {
-            data.docs.forEach((doc) => {
-              let data = doc.data();
-              console.log(data);
-              dispatch(dataSuccess(data));
+          .then((res) => {
+          
+            res.docs.forEach((doc) => {
+              let dataRes = doc.data();
+              console.log(dataRes);
+              dispatch(dataSuccess(dataRes));
             });
           })
           .catch((error) => {

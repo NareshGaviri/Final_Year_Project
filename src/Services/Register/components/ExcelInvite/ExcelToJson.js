@@ -155,7 +155,7 @@ class ExcelReader extends Component {
 
   render() {
     return (
-      <div style={{ padding: "100px",position:"absolute" }}>
+      <div style={{ padding: "100px", position: "absolute" }}>
         {/* <marquee style={{ width: "60%", direction: "left", height: "100px" }}>
           Student data
         </marquee> */}
