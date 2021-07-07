@@ -91,22 +91,8 @@ function Razor(props) {
       className="App"
       style={{ display: "flex", marginLeft: "60px", marginTop: "20px" }}
     >
-      {paidRegistrationFee.map((item) => {
-        console.log("item",item)
-        return (
-          <div>
-            {item.ammoutPaid !== null ? (
-              <h1>You Already Done With Your Registration Fees ......</h1>
-            ) : (
-              <h1>Payment not Done Yet</h1>
-            )}
-          </div>
-        );
-      })}
       <br />
       <br />
-      {console.log("feesReducer.item", paidRegistrationFee)}
-      {people}
       {dataVerifyId.DueFee === 0 && dataVerifyId.LibraryFee === 0 ? (
         <Button onClick={openPayModal} variant="contained" color="secondary">
           Pay with Razorpay
@@ -130,8 +116,7 @@ const mapStateToProps = (state) => {
     collectionData: state.authenticate.auth.collectionData,
     dataVerifyId: state.dataVerifyId.dataVerify.dataVerify,
     // feesReducer: state.feesReducer.feesReducer.dataFees,
-    paidRegistrationFee: state.paidRegistrationFee.fees.feesData,
-    people : state.people.people.peopleData
+    // paidRegistrationFee: state.paidRegistrationFee.fees.feesData,
   };
 };
 const mapDispatchToProps = (dispatch) => {
