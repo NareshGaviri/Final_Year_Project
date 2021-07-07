@@ -50,7 +50,7 @@ function Presentation({ people }) {
         marginLeft: "90px",
         marginRight: "70px",
         marginTop: "170px",
-        position: "fixed",
+        position: "absolute",
         width:"1600px"
       }}
     >

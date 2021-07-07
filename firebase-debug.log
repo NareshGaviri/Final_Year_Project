@@ -1,0 +1,42 @@
+[debug] [2021-07-07T14:21:14.229Z] ----------------------------------------------------------------------
+[debug] [2021-07-07T14:21:14.230Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Praveen\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2021-07-07T14:21:14.231Z] CLI Version:   9.14.0
+[debug] [2021-07-07T14:21:14.231Z] Platform:      win32
+[debug] [2021-07-07T14:21:14.231Z] Node Version:  v14.17.0
+[debug] [2021-07-07T14:21:14.232Z] Time:          Wed Jul 07 2021 19:51:14 GMT+0530 (India Standard Time)
+[debug] [2021-07-07T14:21:14.232Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-07-07T14:21:14.235Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2021-07-07T14:21:14.257Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-07-07T14:21:14.257Z] > authorizing via signed-in user (praveenkusuluri08@gmail.com)
+[debug] [2021-07-07T14:21:14.257Z] [iam] checking project registration-5da27 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2021-07-07T14:21:14.258Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-07-07T14:21:14.259Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-07-07T14:21:14.670Z] <<< HTTP RESPONSE 200 {"pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","date":"Wed, 07 Jul 2021 14:21:16 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-07-07T14:21:14.695Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/registration-5da27:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2021-07-07T14:21:15.569Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2021-07-07T14:21:15.569Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2021-07-07T14:21:16.876Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 07 Jul 2021 14:21:18 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1289","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-07-07T14:21:16.879Z] > refreshing access token with scopes: []
+[debug] [2021-07-07T14:21:16.880Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-07-07T14:21:17.175Z] <<< HTTP RESPONSE 200 {"expires":"Mon, 01 Jan 1990 00:00:00 GMT","date":"Wed, 07 Jul 2021 14:21:18 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-07-07T14:21:17.188Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/registration-5da27 [none]
+[debug] [2021-07-07T14:21:17.766Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/registration-5da27 200
+[debug] [2021-07-07T14:21:17.767Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/registration-5da27 {"projectId":"registration-5da27","projectNumber":"1089964551694","displayName":"Registration","name":"projects/registration-5da27","resources":{"hostingSite":"registration-5da27","realtimeDatabaseInstance":"registration-5da27-default-rtdb","storageBucket":"registration-5da27.appspot.com","locationId":"us-central"},"state":"ACTIVE"}
+[info] 
+[info] === Deploying to 'registration-5da27'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2021-07-07T14:21:17.772Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-07-07T14:21:17.772Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-07-07T14:21:18.071Z] <<< HTTP RESPONSE 200 {"date":"Wed, 07 Jul 2021 14:21:19 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-07-07T14:21:18.087Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/registration-5da27/versions  
+ {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2021-07-07T14:21:39.592Z] Error: connect ETIMEDOUT 216.58.200.138:443
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1146:16)
+[error] 
+[error] Error: Server Error. connect ETIMEDOUT 216.58.200.138:443
