@@ -36,7 +36,7 @@ function Presentation({ people }) {
   const [state, setState] = useState(people);
   return (
     <div
-      style={{ marginLeft: "100px", marginRight: "70px", marginTop: "170px" }}
+      style={{ marginLeft: "100px", marginRight: "70px", marginTop: "170px",position:"absolute" }}
     >
       <MaterialTable
         title={title}

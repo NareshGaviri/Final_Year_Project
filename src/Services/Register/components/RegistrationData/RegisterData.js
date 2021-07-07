@@ -10,8 +10,8 @@ import { feesfees } from "./middleware/index";
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
-    width:"auto",
-    height:"auto",
+    width: "auto",
+    height: "auto",
   },
   details: {
     display: "flex",
@@ -39,11 +39,12 @@ function RegisterData(props) {
   }, []);
 
   return (
-    <div style={{ padding: "100px" }}>
-     
-      <Card className={classes.root}>
-        {feesReducer.map((item,index) => (
-          
+    <div style={{ padding: "100px", position: "absolute" }}>
+      {
+        feesReducer.length ?
+        <Card className={classes.root}>
+        Registration Fees Paid Members
+        {feesReducer.map((item, index) => (
           <div className={classes.details} key={item.index}>
             {console.log(item.Name)}
             <CardContent className={classes.content}>
@@ -56,7 +57,8 @@ function RegisterData(props) {
             </CardContent>
           </div>
         ))}
-      </Card>
+      </Card> : <h1>No Members Are Paid Yet............</h1>
+      }
     </div>
   );
 }
@@ -67,7 +69,7 @@ const mapStateToProps = (state) => {
   };
 };
 const mapDispatchToProps = (dispatch) => {
-  console.log(dispatch(feesfees()))
+  console.log(dispatch(feesfees()));
   return {
     feesData: () => dispatch(feesfees()),
   };

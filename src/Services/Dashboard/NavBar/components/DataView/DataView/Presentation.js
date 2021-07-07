@@ -36,7 +36,7 @@ function Presentation({ dataVerifyId }) {
                 Mobile Number :<i> {dataVerifyId.Mobile}</i>
               </h2>
               <h2>
-                ParentOccupation :<i>{dataVerifyId.ParentOcp }</i>
+                ParentOccupation :<i>{dataVerifyId.ParentOccupation }</i>
               </h2>
               <h2>
                 Email : <i>{dataVerifyId.Email}</i>

@@ -13,6 +13,7 @@ const reducerRoot =combineReducers({
   people: peopleReducer,
   dataVerifyId : dataVerifyReducers,
   feesReducer : feesReducer,
-  paidRegistrationFee:feesReducerData
+  paidRegistrationFee:feesReducerData,
+ 
 })
 export default reducerRoot

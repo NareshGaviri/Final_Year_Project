@@ -8,7 +8,13 @@ import { Button } from "@material-ui/core";
 // import "./styles.css";
 
 function Razor(props) {
-  const { collectionData, indexMiddleware, getFeesData, feesReducer } = props;
+  const {
+    collectionData,
+    indexMiddleware,
+    getFeesData,
+    feesReducer,
+    paidRegistrationFee,
+  } = props;
   console.log("feesReducer", feesReducer);
   if (collectionData) {
     const { fName, email, mobile, lName } = collectionData;
@@ -77,15 +83,29 @@ function Razor(props) {
     script.async = true;
     document.body.appendChild(script);
   }, []);
-
+  console.log("paidRegistrationFee", paidRegistrationFee);
   return (
     <div
       className="App"
-      style={{ display: "flex", marginLeft: "90px", marginTop: "20px" }}
+      style={{ display: "flex", marginLeft: "60px", marginTop: "20px" }}
     >
-      <br></br>
-      <br></br>
-      {feesReducer.DueFee === 0  && feesReducer.LibraryFee===0? (
+      {paidRegistrationFee.map((item) => {
+        console.log("item",item)
+        return (
+          <div>
+            {item.ammoutPaid !== null ? (
+              <h1>You Already Done With Your Registration Fees ......</h1>
+            ) : (
+              <h1>Payment not Done Yet</h1>
+            )}
+          </div>
+        );
+      })}
+      <br />
+      <br />
+      {console.log("feesReducer.item", paidRegistrationFee)}
+
+      {feesReducer.DueFee === 0 && feesReducer.LibraryFee === 0 ? (
         <Button onClick={openPayModal} variant="contained" color="secondary">
           Pay with Razorpay
         </Button>
@@ -108,6 +128,7 @@ const mapStateToProps = (state) => {
     collectionData: state.authenticate.auth.collectionData,
     dataVerifyId: state.dataVerifyId.dataVerify.dataVerify,
     feesReducer: state.feesReducer.feesReducer.dataFees,
+    paidRegistrationFee: state.paidRegistrationFee.fees.feesData,
   };
 };
 const mapDispatchToProps = (dispatch) => {

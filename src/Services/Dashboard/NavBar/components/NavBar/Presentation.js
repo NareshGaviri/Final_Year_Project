@@ -23,11 +23,32 @@ import PropTypes from "prop-types";
 import { Button, Menu, MenuItem, useTheme } from "@material-ui/core";
 import { Redirect } from "react-router";
 import { Link, useLocation } from "react-router-dom";
-import Razorpay from "../../../Payment/Razorpay"
+import Razorpay from "../../../Payment/Razorpay";
+import { makeStyles } from "@material-ui/core/styles";
 import Student from "../../../../Register/components/Student";
-
+import Avatar from "@material-ui/core/Avatar";
+// import Stack from "@material-ui/core/Stack";
+import { deepOrange, deepPurple } from "@material-ui/core/colors";
 import StudentLoginData from "../StudentLoginData";
+import { AccountCircle } from "@material-ui/icons";
+import EmployeeProfile from "../EmployeeProfile/EmployeeProfile";
 
+const useStyles1 = makeStyles((theme) => ({
+  root: {
+    display: "flex",
+    "& > *": {
+      margin: theme.spacing(1),
+    },
+  },
+  orange: {
+    color: theme.palette.getContrastText(deepOrange[500]),
+    backgroundColor: deepOrange[500],
+  },
+  purple: {
+    color: theme.palette.getContrastText(deepPurple[500]),
+    backgroundColor: deepPurple[500],
+  },
+}));
 function Presentation(props) {
   const { _signOut, auth, usersData, people, collectionData } = props;
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -49,8 +70,20 @@ function Presentation(props) {
     setOpen(false);
   };
 
+  const [anchorE2, setAnchorE2] = React.useState(null);
+  const open1 = Boolean(anchorE2);
+
+  const handleMenu1 = (event) => {
+    setAnchorE2(event.currentTarget);
+  };
+
+  const handleClose1 = () => {
+    setAnchorE2(null);
+  };
   const classes = useStyles();
   const theme = useTheme();
+
+  const classes1 = useStyles1();
   return (
     <div>
       {collectionData ? (
@@ -90,11 +123,43 @@ function Presentation(props) {
                       ADMIN
                     </Typography>
 
-                    <div className={classes.navButton}>
-                      <Button onClick={_signOut} color="inherit">
-                        LogOut
-                      </Button>
-                    </div>
+                    <div className={classes.align}>
+                     
+                        <IconButton
+                          aria-label="account of current user"
+                          aria-controls="menu-appbar"
+                          aria-haspopup="true"
+                          onClick={handleMenu1}
+                          color="inherit"
+      
+                        >
+                         <Avatar alt="Remy Sharp" src={collectionData.photoUrl}  />
+                        </IconButton>
+                        <Menu
+                         id="menu-appbar"
+                          anchorE2={anchorE2}
+                          keepMounted
+                          anchorOrigin={{
+                            vertical: "center",
+                            horizontal: "right",
+                            
+                          }}
+                          
+                          open={open1}
+                          onClose={handleClose1}
+                        >
+                          <MenuItem style={{ textDecoration: "none" }}>
+                            <EmployeeProfile />
+                          </MenuItem>
+
+                          <MenuItem color="inherit" onClick={_signOut}>
+                            <Button variant="outlined" color="primary">
+                              LogOut
+                            </Button>
+                          </MenuItem>
+                        </Menu>
+                      
+                      </div>
                   </Toolbar>
                 </AppBar>
                 <Drawer
@@ -173,12 +238,17 @@ function Presentation(props) {
                       </div>
                     </Toolbar>
                   </AppBar>
-                  <div style={{padding:"45px",marginTop:"25px",marginLeft:"570px"}}>
-                    <Razorpay/>
+                  <div
+                    style={{
+                      padding: "45px",
+                      marginTop: "25px",
+                      marginLeft: "570px",
+                    }}
+                  >
+                    <Razorpay />
                   </div>
                   <div style={{}}>
-
-                  <StudentLoginData />
+                    <StudentLoginData />
                   </div>
                 </div>
               ) : (
