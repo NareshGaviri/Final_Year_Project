@@ -150,7 +150,6 @@ function Presentations(props) {
                 <br />
                 <TextField
                   id="photoUrl"
-                  required
                   size="small"
                   variant="outlined"
                   name="photoUrl"
