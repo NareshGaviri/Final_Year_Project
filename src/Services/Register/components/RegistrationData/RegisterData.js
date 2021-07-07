@@ -41,7 +41,7 @@ function RegisterData(props) {
   return (
     <div style={{ padding: "100px", position: "absolute" }}>
       {
-        feesReducer.length ?
+        feesReducer ?
         <Card className={classes.root}>
         Registration Fees Paid Members
         {feesReducer.map((item, index) => (

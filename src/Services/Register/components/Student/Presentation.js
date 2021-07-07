@@ -3,7 +3,7 @@ import "../styles/styles.css"
 function Presentation({ peopleData }) {
   console.log(peopleData);
   return (
-    <div style={{ padding: "100px",marginLeft:"100px" }}>
+    <div style={{ padding: "100px",marginLeft:"100px",position :"absolute" }}>
       {peopleData !== null ? (
         <div className="container">
         <div className="card">

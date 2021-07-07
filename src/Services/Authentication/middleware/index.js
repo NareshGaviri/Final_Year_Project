@@ -20,13 +20,15 @@ export const logIn = (credentials) => {
       .auth()
       .signInWithEmailAndPassword(credentials.email, credentials.password)
       .then(({ user }) => {
+        if(user){
         db.collection("USERS")
           .doc(user.uid)
           .get()
           .then((doc) => {
-            const data = doc.data()
+            var data = doc.data()
             dispatch(authSuccess(data))
           });
+        }
       })
       .catch((error) => {
         console.log(error.message);

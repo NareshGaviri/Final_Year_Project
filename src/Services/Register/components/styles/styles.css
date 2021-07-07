@@ -2,7 +2,7 @@
     /* background-color: #100e17; */
     font-family: "Open Sans", sans-serif;
     /* margin-top :100px */
-    margin-left: -100px;
+    margin-left: -180px;
   }
   
   .container {
@@ -10,7 +10,7 @@
     
     width: 1500px;
     top: 60px;
-    left: calc(30% - 200px);
+    left: calc(20% - 200px);
     display: flex;
   }
 
@@ -24,7 +24,7 @@
     /*   margin-left: -50px; */
     transition: 0.4s ease-out;
     position: relative;
-    left: -40px;
+    left: -30px;
   }
   
   .card:not(:first-child) {

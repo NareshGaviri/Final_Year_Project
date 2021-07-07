@@ -12,31 +12,37 @@ function Presentation({ people }) {
     { field: "FirstName", title: "FirstName" },
     { field: "LastName", title: "LastName" },
     { field: "Branch", title: "Branch" },
-    { field: "Backlogs", title: "NoOfBacklogs"},
+    { field: "Backlogs", title: "NoOfBacklogs" },
     { field: "Role", title: "Role" },
-    {field:"Address",title:"Address"}
+    { field: "Address", title: "Address" },
   ];
   const title = "STUDENT DATA";
   let usersInfoData = [];
   if (people) {
-    people.map((item) => {
-      console.log(item.Backlogs)
-      usersInfoData.push({
-        RegNo: item.RegNo,
-        FirstName: item.FirstName,
-        LastName: item.LastName,
-        Branch: item.Branch,
-        Backlogs: item.Backlogs,
-        Role: item.Role,
-        Address: item.Address
+    people.length &&
+      people.map((item) => {
+        console.log(item.Backlogs);
+        usersInfoData.push({
+          RegNo: item.RegNo,
+          FirstName: item.FirstName,
+          LastName: item.LastName,
+          Branch: item.Branch,
+          Backlogs: item.Backlogs,
+          Role: item.Role,
+          Address: item.Address,
+        });
+        return null;
       });
-      return null;
-    });
   }
   const [state, setState] = useState(people);
   return (
     <div
-      style={{ marginLeft: "100px", marginRight: "70px", marginTop: "170px",position:"absolute" }}
+      style={{
+        marginLeft: "100px",
+        marginRight: "70px",
+        marginTop: "170px",
+        position: "absolute",
+      }}
     >
       <MaterialTable
         title={title}
@@ -76,14 +82,18 @@ function Presentation({ people }) {
                 const index = oldData.tableData.id;
                 dataUpdate[index] = newData;
                 setState([...dataUpdate]);
-                const { RegNo} =  newData
-                db.collection("STUDENTS").doc(RegNo).set(newData,{merge: true}).then((res)=>{
-                  console.log(res)
+                const { RegNo } = newData;
+                db.collection("STUDENTS")
+                  .doc(RegNo)
+                  .set(newData, { merge: true })
+                  .then((res) => {
+                    console.log(res);
 
-                  alert("Data updated successfully");
-                }).catch((error)=>{
-                  console.log(error)
-                })
+                    alert("Data updated successfully");
+                  })
+                  .catch((error) => {
+                    console.log(error);
+                  });
                 resolve();
               }, 1000);
             }),
