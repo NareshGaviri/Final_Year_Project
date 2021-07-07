@@ -204,7 +204,7 @@ class ExcelReader extends Component {
               aria-controls="panel2a-content"
               id="panel2a-header"
             >
-              <Typography>Acadamic Data</Typography>
+              <Typography>Academic Data</Typography>
             </AccordionSummary>
             <AccordionDetails>
               <TextField

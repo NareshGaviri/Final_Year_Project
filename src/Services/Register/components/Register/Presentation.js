@@ -25,11 +25,10 @@ function Presentation({ people }) {
     { field: "LastName", title: "LastName" },
     { field: "Branch", title: "Branch" },
     { field: "NoOfBacklogs", title: "NoOfBacklogs" },
-    { field: "Role", title: "Role" },
     { field: "Address", title: "Address" },
   ];
 
-  const title = "ACADAMIC_DATA";
+  const title = "ACADEMIC_DATA";
   let usersInfoData = [];
   if (people) {
     people.length &&
@@ -40,7 +39,6 @@ function Presentation({ people }) {
           LastName: item.LastName,
           Branch: item.Branch,
           NoOfBacklogs: item.Backlogs,
-          Role: item.Role,
           Address: item.Address,
         });
         return null;
@@ -49,10 +47,11 @@ function Presentation({ people }) {
   return (
     <div
       style={{
-        marginLeft: "100px",
+        marginLeft: "90px",
         marginRight: "70px",
         marginTop: "170px",
-        position: "absolute",
+        position: "fixed",
+        width:"1600px"
       }}
     >
       <MaterialTable

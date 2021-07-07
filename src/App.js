@@ -12,7 +12,7 @@ import StudentsData from "./Services/Register/components/AdminViewStudent/Studen
 import ExcelToJson from "./Services/Register/components/ExcelInvite/ExcelToJson"
 // import Checkout from "./Services/Dashboard/NavBar/components/Checkout/components/Checkout"
 import RegisterData from "./Services/Register/components/RegistrationData/RegisterData"
-
+import FeesData from "./Services/Dashboard/NavBar/components/FeesData"
 function App() {
   return (
     <Provider store={store}>
@@ -29,6 +29,7 @@ function App() {
             <Route path="/StudentsData" component={StudentsData} />
             <Route path="/publish" component={ExcelToJson} />
             <Route path="/registrationFee" component={RegisterData}/>
+            <Route path="/feesData" component={FeesData} />
           </Switch>
         </BrowserRouter>
       </div>

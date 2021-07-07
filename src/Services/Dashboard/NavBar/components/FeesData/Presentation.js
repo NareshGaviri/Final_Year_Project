@@ -9,13 +9,14 @@ function Presentation({ people }) {
       dataType: "String",
     },
 
-    { field: "FirstName", title: "FirstName" },
-    { field: "LastName", title: "LastName" },
-    { field: "Branch", title: "Branch" },
-    { field: "Backlogs", title: "NoOfBacklogs" },
+    { field: "TotalFee", title: "TotalFee" },
+    { field: "PaidFee", title: "PaidFee" },
+    { field: "DueFee", title: "DueFee" },
+    { field: "Email", title: "Email" },
+    { field: "LibraryFee", title: "LibraryFee" },
     { field: "Address", title: "Address" },
   ];
-  const title = "STUDENT DATA";
+  const title = "FEES DATA";
   let usersInfoData = [];
   if (people) {
     people.length &&
@@ -23,10 +24,11 @@ function Presentation({ people }) {
         console.log(item.Backlogs);
         usersInfoData.push({
           RegNo: item.RegNo,
-          FirstName: item.FirstName,
-          LastName: item.LastName,
-          Branch: item.Branch,
-          Backlogs: item.Backlogs,
+          TotalFee: item.TotalFee,
+          PaidFee: item.PaidFee,
+          DueFee: item.DueFee,
+          Email: item.Email,
+          LibraryFee: item.LibraryFee,
           Address: item.Address,
         });
         return null;
