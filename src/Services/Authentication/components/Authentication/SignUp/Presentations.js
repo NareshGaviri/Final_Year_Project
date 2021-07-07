@@ -47,6 +47,7 @@ function Presentations(props) {
     role,
     auth,
     rollNumber,
+    photoUrl,
     onChangeAlphaNumericInput,
   } = props;
 
@@ -117,19 +118,46 @@ function Presentations(props) {
                 />
                 <br />
                 <br />
+                {role !== "admin" ? (
+                  <TextField
+                    id="rollNumber"
+                    required
+                    size="small"
+                    variant="outlined"
+                    name="rollNumber"
+                    type="alphanumeric"
+                    label="Roll Number"
+                    value={rollNumber}
+                    onChange={handleChange}
+                    inputProps={{ style: { width: 350 } }}
+                  />
+                ) : (
+                  <TextField
+                    id="rollNumber"
+                    required
+                    disabled
+                    size="small"
+                    variant="outlined"
+                    name="rollNumber"
+                    type="alphanumeric"
+                    label="Roll Number"
+                    value={`You are ${role}`}
+                    onChange={handleChange}
+                    inputProps={{ style: { width: 350 } }}
+                  />
+                )}
+                <br />
+                <br />
                 <TextField
-                  id="rollNumber"
+                  id="photoUrl"
                   required
                   size="small"
                   variant="outlined"
-                  name="rollNumber"
-                  type="alphanumeric"
-                  label="Roll Number"
-                  value={rollNumber}
+                  name="photoUrl"
+                  label="Photo Url"
                   onChange={handleChange}
                   inputProps={{ style: { width: 350 } }}
                 />
-
                 <br />
                 <br />
                 <CardActions>

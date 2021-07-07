@@ -51,7 +51,7 @@ signUp:{
     flexDirection: 'column',
     alignItems: 'center',
    
-    height: '560px',
+    height: '600px',
   },
   avatar: {
     margin: theme.spacing(1),

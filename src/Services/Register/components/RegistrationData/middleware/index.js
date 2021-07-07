@@ -18,6 +18,7 @@ export const feesfees = () => {
         });
         dispatch(feesFirebaseSuccess(fees));
       })
+
       .catch((error) => {
         console.log(error);
         dispatch(feesFirebaseFailure(error));

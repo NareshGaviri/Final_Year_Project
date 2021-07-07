@@ -20,15 +20,15 @@ export const logIn = (credentials) => {
       .auth()
       .signInWithEmailAndPassword(credentials.email, credentials.password)
       .then(({ user }) => {
-        if(user){
-        db.collection("USERS")
-          .doc(user.uid)
-          .get()
-          .then((doc) => {
-            console.log(doc)
-            var data = doc.data()
-            dispatch(authSuccess(data))
-          });
+        if (user) {
+          db.collection("USERS")
+            .doc(user.uid)
+            .get()
+            .then((doc) => {
+              console.log(doc);
+              var data = doc.data();
+              dispatch(authSuccess(data));
+            });
         }
       })
       .catch((error) => {
@@ -50,6 +50,7 @@ export const signUp = (newUser) => {
       role: newUser.role,
       email: newUser.email,
       rollNumber: newUser.rollNumber,
+      photoUrl: newUser.photoUrl,
     };
     dispatch(signUpRequest());
     firebase

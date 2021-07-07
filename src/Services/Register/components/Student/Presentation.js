@@ -3,7 +3,7 @@ import "../styles/styles.css"
 function Presentation({ peopleData }) {
   console.log(peopleData);
   return (
-    <div style={{ padding: "100px",marginLeft:"100px",position :"absolute" }}>
+    <div style={{ padding: "100px",marginLeft:"50px",position :"absolute" }}>
       {peopleData !== null ? (
         <div className="container">
         <div className="card">
@@ -15,12 +15,12 @@ function Presentation({ peopleData }) {
           <div className="circle">
             <h2>
               FirstName :{" "}
-              <i >{peopleData.FirstName}</i>
+              <i >{peopleData.FirstName}</i> 
             </h2>
             <h2>
               LastName : <i>{peopleData.LastName}</i>
             </h2>
-            <h2>Regestration Number : {peopleData.RegNo}</h2>
+            <h2>Regestration Number : {peopleData.RegNo}</h2> 
             <h2>Regestration Number : {peopleData.Address}</h2>
             {/* <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
       <circle class="stroke" cx="60" cy="60" r="50"/>

@@ -14,7 +14,8 @@ export class Container extends Component {
       fName: "",
       lName: "",
       role: "",
-      rollNumber: ""
+      rollNumber: "",
+      photoUrl:""
     };
   }
   handleChange = (e) => {
