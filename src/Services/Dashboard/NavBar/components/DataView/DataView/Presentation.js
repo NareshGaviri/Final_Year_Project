@@ -3,11 +3,11 @@ import React from "react";
 import "../Styles/stylesDataView.css";
 
 function Presentation({ dataVerifyId }) {
-  console.log("dataVerifyId",dataVerifyId);
+  console.log("dataVerifyId", dataVerifyId);
 
   return (
-    <div style={{top:"10px"}}>
-      <div className="body" >
+    <div style={{ top: "10px" }}>
+      <div className="body">
         {/* <Checkout/> */}
 
         <div className="container">
@@ -36,7 +36,7 @@ function Presentation({ dataVerifyId }) {
                 Mobile Number :<i> {dataVerifyId.Mobile}</i>
               </h2>
               <h2>
-                ParentOccupation :<i>{dataVerifyId.ParentOccupation }</i>
+                ParentOccupation :<i>{dataVerifyId.ParentOccupation}</i>
               </h2>
               <h2>
                 Email : <i>{dataVerifyId.Email}</i>
@@ -69,12 +69,28 @@ function Presentation({ dataVerifyId }) {
               <h2>
                 PaidFee:<i>{dataVerifyId.PaidFee}</i>
               </h2>
-              <h2>
-                DueFee:<i>{dataVerifyId.DueFee}</i>
-              </h2>
-              <h2>
-                LibraryFee:<i>{dataVerifyId.LibraryFee}</i>
-              </h2>
+              {dataVerifyId.DueFee > 0 ? (
+                <mark>
+                  <h2>
+                    DueFee:<i>{dataVerifyId.DueFee}</i>
+                  </h2>
+                </mark>
+              ) : (
+                <h2>
+                  DueFee:<i>{dataVerifyId.DueFee}</i>
+                </h2>
+              )}
+              {dataVerifyId.LibraryFee > 0 ? (
+                <mark>
+                  <h2>
+                    LibraryFee:<i>{dataVerifyId.LibraryFee}</i>
+                  </h2>
+                </mark>
+              ) : (
+                <h2>
+                  LibraryFee:<i>{dataVerifyId.LibraryFee}</i>
+                </h2>
+              )}
               {/* <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
       <circle class="stroke" cx="60" cy="60" r="50"/>
     </svg>  */}
