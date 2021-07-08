@@ -10,7 +10,6 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import SignIn from "../../../../Authentication/components/Authentication/SignIn";
 import modules from "../../../../../modules";
-import studentModules from "../../../../../studentModules";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
@@ -32,7 +31,7 @@ import { deepOrange, deepPurple } from "@material-ui/core/colors";
 import StudentLoginData from "../StudentLoginData";
 import { AccountCircle } from "@material-ui/icons";
 import EmployeeProfile from "../EmployeeProfile/EmployeeProfile";
-
+import SasiLogo from "../../../../../Assets/sasilogo.jpeg"
 const useStyles1 = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -133,7 +132,7 @@ function Presentation(props) {
                           color="inherit"
       
                         >
-                         <Avatar alt="Remy Sharp" src={collectionData.photoUrl}  />
+                         {collectionData.photoUrl ?<Avatar alt="Remy Sharp" src={collectionData.photoUrl}  /> :<Avatar alt="Remy Sharp" src={SasiLogo}  />}
                         </IconButton>
                         <Menu
                          id="menu-appbar"
