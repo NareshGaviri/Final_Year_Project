@@ -7,7 +7,7 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-
+import SasiLogo from "../../../../../Assets/sasilogo.jpeg"
 import Dialog from "@material-ui/core/Dialog";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
@@ -55,7 +55,7 @@ function EmployeeProfile(props) {
             <CardActionArea>
               <CardMedia
                 className={classes.media}
-                image={collectionData.photoUrl}
+                image={collectionData.photoUrl ? collectionData.photoUrl : SasiLogo}
                 title="Profile Pic"
               />
               <CardContent>

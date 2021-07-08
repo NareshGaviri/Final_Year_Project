@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Presentation from "./Presentation";
 import { connect } from "react-redux";
 import { compose } from "redux";
-import { firestoreConnect } from "react-redux-firebase";
+import { firestoreConnect } from "react-redux-firebase"
 import { _signOut } from "../../../../Authentication/middleware/index";
 import { db } from "../../../../../config/fbConfig";
 
